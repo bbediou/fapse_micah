@@ -53,35 +53,88 @@
     }
 
     @media screen and (max-width: 768px) {
-      .topnav nav {
+      /* Overlay behind the menu */
+      .menu-overlay {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 40;
+        transition: opacity 0.25s ease;
+        opacity: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .menu-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Full-screen sliding menu for easier tapping */
+      .topnav nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
+        height: 100vh;
         background-color: white;
-        padding: 1rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        border-radius: 0.5rem;
+        padding: 2.5rem 1.5rem;
+        transform: translateY(-100%);
+        transition: transform 0.35s cubic-bezier(.2,.9,.2,1);
         z-index: 50;
       }
 
       .dark .topnav nav {
-        background-color: #1e293b;
+        background-color: #0b1220;
       }
 
+      /* When open, slide into view */
       .topnav.responsive nav {
-        display: flex;
-        flex-direction: column;
+        transform: translateY(0);
       }
 
+      /* Show the hamburger / close button on mobile */
       .topnav button.icon {
         display: block;
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        color: inherit;
+        z-index: 60; /* keep above overlay */
       }
 
+      /* Larger, tappable links */
       .topnav nav a {
-        padding: 0.5rem 0;
+        padding: 0.75rem 1rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #0f172a;
+        width: 100%;
+        text-align: center;
+        border-radius: 0.5rem;
+        transition: background-color 0.15s ease, color 0.15s ease;
       }
+
+      .dark .topnav nav a {
+        color: #e6eef8;
+      }
+
+      .topnav nav a:hover {
+        background: rgba(15,23,42,0.04);
+      }
+
+      .topnav nav a:active {
+        background: rgba(15,23,42,0.06);
+      }
+
+      /* Ensure desktop layout still uses the md:flex rules */
+      .topnav .md\\:flex { display: none; }
     }
     
     /* Icon animations */
@@ -126,19 +179,20 @@
 <img alt="MICAH logo" src="./src/micah_logo.png" width="70"/>
 </a>
 <div class="topnav" id="myTopnav">
-<nav class="md:flex items-center gap-6 text-sm">
-<a class="hover:text-indigo-600 transition-colors" href="#home">Home</a>
-<a class="hover:text-indigo-600 transition-colors" href="#about">About</a>
-<a class="hover:text-indigo-600 transition-colors" href="#methods">Methods</a>
-<a class="hover:text-indigo-600 transition-colors" href="#data">Data &amp; Results</a>
-<a href="empty_report.html">Report</a>
-<a class="hover:text-indigo-600 transition-colors" href="#families">For Families</a>
-<a class="hover:text-indigo-600 transition-colors" href="#team">Team</a>
-<a class="hover:text-indigo-600 transition-colors" href="#contact">Contact</a>
-</nav>
-<button class="md:hidden icon" onclick="myFunction()">
-<i class="fa fa-bars"></i>
-</button>
+  <nav class="md:flex items-center gap-6 text-sm" role="navigation" aria-label="Main navigation">
+    <a class="hover:text-indigo-600 transition-colors" href="#home">Home</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#about">About</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#methods">Methods</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#data">Data &amp; Results</a>
+    <a href="empty_report.html">Report</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#families">For Families</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#team">Team</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#contact">Contact</a>
+  </nav>
+  <button class="md:hidden icon" aria-expanded="false" aria-label="Open menu" onclick="myFunction()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="menu-overlay" aria-hidden="true" onclick="myFunction()"></div>
 </div>
 <div class="flex items-center gap-3">
 <button aria-label="Toggle dark mode" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="darkModeToggle">
@@ -731,10 +785,29 @@
   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
   function myFunction() {
     var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className = "topnav responsive";
+    if (!x) return;
+    var btn = x.querySelector('button.icon');
+    var overlay = x.querySelector('.menu-overlay');
+    var isOpen = x.classList.toggle('responsive');
+
+    if (isOpen) {
+      // Open state
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close menu');
+        btn.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+      }
+      if (overlay) overlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent background scroll when menu open
     } else {
-      x.className = "topnav";
+      // Closed state
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+        btn.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
+      }
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = ''; // restore scroll
     }
   }
 
