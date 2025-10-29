@@ -180,14 +180,14 @@
 </a>
 <div class="topnav" id="myTopnav">
   <nav class="md:flex items-center gap-6 text-sm" role="navigation" aria-label="Main navigation">
-    <a class="hover:text-indigo-600 transition-colors" href="#home">Home</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#about">About</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#methods">Methods</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#data">Data &amp; Results</a>
-    <a href="empty_report.html">Report</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#families">For Families</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#team">Team</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#contact">Contact</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#home" data-i18n="nav.home">Home</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#about" data-i18n="nav.about">About</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#methods" data-i18n="nav.methods">Methods</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#data" data-i18n="nav.data">Data &amp; Results</a>
+    <a href="empty_report.html" data-i18n="nav.report">Report</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#families" data-i18n="nav.families">For Families</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#team" data-i18n="nav.team">Team</a>
+    <a class="hover:text-indigo-600 transition-colors" href="#contact" data-i18n="nav.contact">Contact</a>
   </nav>
   <button class="md:hidden icon" aria-expanded="false" aria-label="Open menu" onclick="myFunction()">
     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -195,11 +195,17 @@
   <div class="menu-overlay" aria-hidden="true" onclick="myFunction()"></div>
 </div>
 <div class="flex items-center gap-3">
-<button aria-label="Toggle dark mode" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="darkModeToggle">
+  <!-- Language selector -->
+  <div class="language-toggle inline-flex items-center gap-2 mr-2">
+    <button class="px-2 py-1 rounded-md text-sm" data-lang="en" onclick="setLanguage('en')">EN</button>
+    <button class="px-2 py-1 rounded-md text-sm" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+    <button class="px-2 py-1 rounded-md text-sm" data-lang="de" onclick="setLanguage('de')">DE</button>
+  </div>
+  <button aria-label="Toggle dark mode" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="darkModeToggle">
 <svg class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
-<a class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white text-sm font-medium shadow-soft hover:bg-indigo-700 transition-all" href="#contact">
+<a class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white text-sm font-medium shadow-soft hover:bg-indigo-700 transition-all" href="#contact" data-i18n="cta.getInTouch">
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Get in touch
         </a>
@@ -214,18 +220,18 @@
 <div class="mx-auto container container-narrow px-4">
 <div class="py-24 md:py-40">
 <div class="max-w-2xl glass rounded-3xl p-6 md:p-10 shadow-glow border border-white/20">
-<div class="flex items-center gap-2 text-sm uppercase tracking-widest text-indigo-400 font-semibold">
+            <div class="flex items-center gap-2 text-sm uppercase tracking-widest text-indigo-400 font-semibold">
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-              Media · Cognition · Adolescents · Health
+              <span data-i18n="hero.tagline">Media · Cognition · Adolescents · Health</span>
             </div>
-<h1 class="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight">Understanding how young people use digital media—and how it relates to learning, well-being, and health.</h1>
-<p class="mt-4 text-slate-200">MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers.</p>
+<h1 class="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight" data-i18n="hero.h1">Understanding how young people use digital media—and how it relates to learning, well-being, and health.</h1>
+<p class="mt-4 text-slate-200" data-i18n="hero.p">MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers.</p>
 <div class="mt-6 flex gap-3">
-<a class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-slate-900 text-sm font-medium shadow-soft hover:bg-white/20 transition-all" href="#data">
+<a class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-slate-900 text-sm font-medium shadow-soft hover:bg-white/20 transition-all" href="#data" data-i18n="cta.explore">
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 Explore results
               </a>
-<a class="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur px-5 py-2.5 text-white text-sm font-medium shadow-soft ring-1 ring-white/20 hover:bg-white/20 transition-all" href="#about">
+<a class="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur px-5 py-2.5 text-white text-sm font-medium shadow-soft ring-1 ring-white/20 hover:bg-white/20 transition-all" href="#about" data-i18n="cta.whatStudy">
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 What we study
               </a>
@@ -268,7 +274,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Our Focus
         </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">What we study</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.aboutTitle">What we study</h2>
 <p class="mt-4 leading-relaxed">During adolescence, brains and lives change rapidly. We're interested in how <strong>digital media practices</strong>—such as social media, messaging, gaming, and video—relate to the development of <strong>executive functions</strong> like attention, working memory, inhibition, and flexibility. We look at opportunities as well as risks to understand <em>what helps</em> young people thrive.</p>
 <div class="mt-6 grid sm:grid-cols-2 gap-4">
 <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 card-hover bg-white dark:bg-slate-800">
@@ -307,7 +313,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             Methodology
           </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">How the study works</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.methodsTitle">How the study works</h2>
 <p class="mt-4 leading-relaxed">We combine two complementary approaches at each visit (about 2 hours total):</p>
 <div class="mt-4 space-y-3">
 <div class="flex items-start gap-3">
@@ -372,7 +378,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             Findings
           </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">Data &amp; results (demo)</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.dataTitle">Data &amp; results (demo)</h2>
 <p class="mt-2 text-slate-700 dark:text-slate-400">Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready.</p>
 </div>
 <!-- Hide buttons
@@ -394,7 +400,7 @@
 <svg class="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <h3 class="font-semibold">Time Spent on Device by Age (%)</h3>
 </div>
-<canvas aria-label="Device ownership chart" height="10" id="chartOwnership" role="img"></canvas>
+<canvas aria-label="Device ownership chart" height="10" id="chartTimeSpent" role="img"></canvas>
 </div>
 <div class="rounded-3xl bg-slate-200 dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 card-hover">
 <div class="flex items-center gap-2 mb-2">
@@ -422,7 +428,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Practical Guidance
         </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">For families &amp; teachers</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.familiesTitle">For families &amp; teachers</h2>
 <p class="mt-3 text-slate-700 dark:text-slate-400">We translate findings into <strong>practical guidance</strong> in clear language. A few principles emerging from the science:</p>
 <div class="mt-4 space-y-3">
 <div class="flex items-start gap-3">
@@ -480,6 +486,85 @@
     });
 </script>
 -->
+<script>
+  // Simple client-side i18n
+  const translations = {
+    en: {
+      title: "MICAH – Media, Interaction, Cognition, Adolescents & Health",
+      metaDescription: "A friendly, modern demo site for the MICAH project showing positive visuals, clear structure, and sample data visualizations.",
+      nav: { home: "Home", about: "About", methods: "Methods", data: "Data & Results", report: "Report", families: "For Families", team: "Team", contact: "Contact" },
+      cta: { explore: "Explore results", whatStudy: "What we study", getInTouch: "Get in touch" },
+      hero: { tagline: "Media · Cognition · Adolescents · Health", h1: "Understanding how young people use digital media—and how it relates to learning, well-being, and health.", p: "MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers." },
+      sections: { aboutTitle: "What we study", methodsTitle: "How the study works", dataTitle: "Data & results (demo)", familiesTitle: "For families & teachers", teamTitle: "Team", contactTitle: "Get in touch" },
+      form: { name: "Name", email: "Email", message: "Message", send: "Send message", demoNote: "Demo form only." },
+      footer: { copy: "MICAH — Demo site", about: "About", methods: "Methods", data: "Data", families: "Families", team: "Team", contact: "Contact" }
+    },
+    fr: {
+      title: "MICAH – Médias, interaction, cognition, adolescents & santé",
+      metaDescription: "Site démo convivial pour le projet MICAH présentant des visuels positifs, une structure claire et des visualisations de données d'exemple.",
+      nav: { home: "Accueil", about: "À propos", methods: "Méthodes", data: "Données & Résultats", report: "Rapport", families: "Pour les familles", team: "Équipe", contact: "Contact" },
+      cta: { explore: "Explorer les résultats", whatStudy: "Ce que nous étudions", getInTouch: "Contactez-nous" },
+      hero: { tagline: "Médias · Cognition · Adolescents · Santé", h1: "Comprendre comment les jeunes utilisent les médias numériques — et comment cela se rapporte à l'apprentissage, au bien-être et à la santé.", p: "MICAH suit des adolescents dans le temps pour étudier les pratiques des médias numériques et les fonctions exécutives, afin d'informer les familles, les écoles et les chercheurs." },
+      sections: { aboutTitle: "Ce que nous étudions", methodsTitle: "Comment l'étude fonctionne", dataTitle: "Données & résultats (démo)", familiesTitle: "Pour les familles & enseignants", teamTitle: "Équipe", contactTitle: "Contactez-nous" },
+      form: { name: "Nom", email: "Courriel", message: "Message", send: "Envoyer", demoNote: "Formulaire de démonstration uniquement." },
+      footer: { copy: "MICAH — Site démo", about: "À propos", methods: "Méthodes", data: "Données", families: "Familles", team: "Équipe", contact: "Contact" }
+    },
+    de: {
+      title: "MICAH – Medien, Interaktion, Kognition, Jugendliche & Gesundheit",
+      metaDescription: "Eine freundliche Demo-Site für das MICAH-Projekt mit positiven Visualisierungen, klarer Struktur und Beispiel-Datenvisualisierungen.",
+      nav: { home: "Start", about: "Über uns", methods: "Methoden", data: "Daten & Ergebnisse", report: "Bericht", families: "Für Familien", team: "Team", contact: "Kontakt" },
+      cta: { explore: "Ergebnisse erkunden", whatStudy: "Was wir untersuchen", getInTouch: "Kontakt" },
+      hero: { tagline: "Medien · Kognition · Jugendliche · Gesundheit", h1: "Verstehen, wie junge Menschen digitale Medien nutzen — und wie das Lernen, Wohlbefinden und Gesundheit beeinflusst.", p: "MICAH begleitet Jugendliche über die Zeit, um digitale Medienpraktiken und exekutive Funktionen zu untersuchen und Familien, Schulen und Forschende zu informieren." },
+      sections: { aboutTitle: "Was wir untersuchen", methodsTitle: "Wie die Studie funktioniert", dataTitle: "Daten & Ergebnisse (Demo)", familiesTitle: "Für Familien & Lehrkräfte", teamTitle: "Team", contactTitle: "Kontakt" },
+      form: { name: "Name", email: "E-Mail", message: "Nachricht", send: "Senden", demoNote: "Nur Demo-Formular." },
+      footer: { copy: "MICAH — Demo-Site", about: "Über uns", methods: "Methoden", data: "Daten", families: "Familien", team: "Team", contact: "Kontakt" }
+    }
+  };
+
+  function t(keyPath, lang) {
+    lang = lang || (localStorage.getItem('lang') || 'en');
+    const parts = keyPath.split('.');
+    let cur = translations[lang] || translations['en'];
+    for (const p of parts) {
+      if (cur && Object.prototype.hasOwnProperty.call(cur, p)) cur = cur[p]; else return '';
+    }
+    return cur;
+  }
+
+  function applyTranslations(lang) {
+    // update html lang
+    document.documentElement.lang = lang;
+    // update title and meta
+    if (translations[lang] && translations[lang].title) document.title = translations[lang].title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta && translations[lang] && translations[lang].metaDescription) meta.setAttribute('content', translations[lang].metaDescription);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = t(key, lang);
+      if (val !== undefined && val !== null) {
+        // preserve innerHTML for small tags if necessary
+        el.textContent = val;
+      }
+    });
+
+    // highlight active language button
+    document.querySelectorAll('.language-toggle [data-lang]').forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) btn.classList.add('bg-indigo-600','text-white'); else btn.classList.remove('bg-indigo-600','text-white');
+    });
+
+    localStorage.setItem('lang', lang);
+  }
+
+  function setLanguage(lang) { applyTranslations(lang); }
+
+  // Initialize language on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('fr') ? 'fr' : (navigator.language && navigator.language.startsWith('de') ? 'de' : 'en'));
+    applyTranslations(lang);
+  });
+</script>
+-->
 <!-- Team -->
 <section class="py-14" id="team">
 <div class="mx-auto container container-narrow px-4">
@@ -487,7 +572,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         Our Team
       </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">Team</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.teamTitle">Team</h2>
 <p class="mt-2 text-slate-700 dark:text-slate-400">An interdisciplinary team spanning cognitive neuroscience, media psychology, and communication.</p>
 <div class="mt-6 grid sm:grid-cols-6 lg:grid-cols-6 gap-6">
 <div class="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-soft card-hover">
@@ -599,7 +684,7 @@
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Contact Us
         </div>
-<h2 class="text-2xl md:text-3xl font-extrabold">Get in touch</h2>
+<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.contactTitle">Get in touch</h2>
 <div class="mt-4 space-y-3">
 <div class="flex items-start gap-3">
 <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
@@ -620,33 +705,33 @@
 </div>
 </div>
 <form class="bg-white/10 backdrop-blur rounded-3xl p-6 shadow-soft border border-white/20">
-<label class="block text-sm font-medium">Name
+<label class="block text-sm font-medium"> <span data-i18n="form.name">Name</span>
           <input class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="Your full name" required="" type="text"/>
 </label>
-<label class="block text-sm font-medium mt-4">Email
+<label class="block text-sm font-medium mt-4"> <span data-i18n="form.email">Email</span>
           <input class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="you@example.org" required="" type="email"/>
 </label>
-<label class="block text-sm font-medium mt-4">Message
+<label class="block text-sm font-medium mt-4"> <span data-i18n="form.message">Message</span>
           <textarea class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="How can we help?" required="" rows="4"></textarea>
 </label>
-<button class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2 text-slate-900 font-semibold shadow-soft hover:bg-slate-50 transition-all" type="button">
+<button class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2 text-slate-900 font-semibold shadow-soft hover:bg-slate-50 transition-all" type="button" data-i18n="form.send">
 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           Send message
         </button>
-<p class="mt-2 text-xs text-white/70">Demo form only.</p>
+<p class="mt-2 text-xs text-white/70" data-i18n="form.demoNote">Demo form only.</p>
 </form>
 </div>
 </section>
 <footer class="py-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
 <div class="mx-auto container container-narrow px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-<p class="text-sm text-slate-600 dark:text-slate-400">© <span id="year"></span> MICAH — Demo site</p>
+<p class="text-sm text-slate-600 dark:text-slate-400">© <span id="year"></span> <span data-i18n="footer.copy">MICAH — Demo site</span></p>
 <div class="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
-<a class="hover:text-indigo-600 transition-colors" href="#about">About</a>
-<a class="hover:text-indigo-600 transition-colors" href="#methods">Methods</a>
-<a class="hover:text-indigo-600 transition-colors" href="#data">Data</a>
-<a class="hover:text-indigo-600 transition-colors" href="#families">Families</a>
-<a class="hover:text-indigo-600 transition-colors" href="#team">Team</a>
-<a class="hover:text-indigo-600 transition-colors" href="#contact">Contact</a>
+<a class="hover:text-indigo-600 transition-colors" href="#about" data-i18n="footer.about">About</a>
+<a class="hover:text-indigo-600 transition-colors" href="#methods" data-i18n="footer.methods">Methods</a>
+<a class="hover:text-indigo-600 transition-colors" href="#data" data-i18n="footer.data">Data</a>
+<a class="hover:text-indigo-600 transition-colors" href="#families" data-i18n="footer.families">Families</a>
+<a class="hover:text-indigo-600 transition-colors" href="#team" data-i18n="footer.team">Team</a>
+<a class="hover:text-indigo-600 transition-colors" href="#contact" data-i18n="footer.contact">Contact</a>
 </div>
 </div>
 </footer>
@@ -673,7 +758,7 @@
   //function rand(n, base=0) { return Array.from({length:n}, () => (Math.random()*0.6 + base).toFixed(2)); }
 
   // Device time spent by age
-  const ownershipCtx = document.getElementById('chartOwnership');
+  const ownershipCtx = document.getElementById('chartTimeSpent');
 
   // Define your CSV data as a string (or load from file)
   const csvData = `AGE_NB_t1,timepoint,COMP,SP,TAB,TV,VG
