@@ -143,6 +143,10 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
+    /* Keep header nav items on a single line to prevent wrapping */
+    .topnav nav { flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .topnav nav a { white-space: nowrap; }
     
     /* Card hover effects */
     .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -174,43 +178,77 @@
 <body class="bg-slate-50 text-slate-800"><div class="container mt-4">
 <!-- Top bar -->
 <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 glass border-b border-slate-200">
-<div class="mx-auto container container-narrow px-4 py-3 flex items-center justify-between">
-<a class="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-lg" href="#home">
-<img alt="MICAH logo" src="./src/micah_logo.png" width="70"/>
-</a>
-<div class="topnav" id="myTopnav">
-  <nav class="md:flex items-center gap-6 text-sm" role="navigation" aria-label="Main navigation">
-    <a class="hover:text-indigo-600 transition-colors" href="#home" data-i18n="nav.home">Home</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#about" data-i18n="nav.about">About</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#methods" data-i18n="nav.methods">Methods</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#data" data-i18n="nav.data">Data &amp; Results</a>
-    <a href="empty_report.html" data-i18n="nav.report">Report</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#families" data-i18n="nav.families">For Families</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#team" data-i18n="nav.team">Team</a>
-    <a class="hover:text-indigo-600 transition-colors" href="#contact" data-i18n="nav.contact">Contact</a>
-  </nav>
-  <button class="md:hidden icon" aria-expanded="false" aria-label="Open menu" onclick="myFunction()">
-    <i class="fa fa-bars" aria-hidden="true"></i>
-  </button>
-  <div class="menu-overlay" aria-hidden="true" onclick="myFunction()"></div>
-</div>
-<div class="flex items-center gap-3">
-  <!-- Language selector -->
-  <div class="language-toggle inline-flex items-center gap-2 mr-2">
-    <button class="px-2 py-1 rounded-md text-sm" data-lang="en" onclick="setLanguage('en')">EN</button>
-    <button class="px-2 py-1 rounded-md text-sm" data-lang="fr" onclick="setLanguage('fr')">FR</button>
-    <button class="px-2 py-1 rounded-md text-sm" data-lang="de" onclick="setLanguage('de')">DE</button>
-  </div>
-  <button aria-label="Toggle dark mode" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="darkModeToggle">
-<svg class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<a class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white text-sm font-medium shadow-soft hover:bg-indigo-700 transition-all" href="#contact" data-i18n="cta.getInTouch">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-          Get in touch
+  <div class="mx-auto container container-narrow px-4 py-3">
+    <div id="myTopnav" class="topnav w-full">
+      <div class="grid grid-cols-3 items-center">
+        <!-- Left: logo -->
+        <a class="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-lg" href="#home">
+          <img alt="MICAH logo" src="./src/micah_logo.png" width="70"/>
         </a>
-</div>
-</div>
+
+        <!-- Center: main nav (centered) -->
+        <nav class="md:flex items-center gap-6 text-sm justify-self-center hidden md:flex" role="navigation" aria-label="Main navigation">
+          <a class="hover:text-indigo-600 transition-colors" href="#home" data-i18n="nav.home">Home</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#about" data-i18n="nav.about">About</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#methods" data-i18n="nav.methods">Methods</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#data" data-i18n="nav.data">Data &amp; Results</a>
+          <a href="empty_report.html" data-i18n="nav.report">Report</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#families" data-i18n="nav.families">For Families</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#team" data-i18n="nav.team">Team</a>
+          <a class="hover:text-indigo-600 transition-colors" href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <!-- Right: controls (language select, dark mode, CTA, hamburger for mobile) -->
+        <div class="flex items-center justify-end gap-3">
+          <!-- Language dropdown -->
+          <label for="langSelect" class="sr-only">Language</label>
+          <select id="langSelect" class="rounded px-2 py-1 text-sm border border-slate-200 bg-white dark:bg-slate-800 dark:border-slate-700 text-slate-800 dark:text-slate-100">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+          </select>
+
+          <!-- Dark mode toggle -->
+          <button aria-label="Toggle dark mode" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" id="darkModeToggle">
+            <svg class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            <svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </button>
+
+          <!-- CTA -->
+          <a class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white text-sm font-medium shadow-soft hover:bg-indigo-700 transition-all" href="#contact" data-i18n="cta.getInTouch">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            <span class="hidden md:inline">Get in touch</span>
+          </a>
+
+          <!-- Mobile hamburger (visible on small screens) -->
+          <button class="icon ml-2 md:hidden" onclick="myFunction()" aria-label="Open menu" aria-expanded="false"> <i class="fa fa-bars" aria-hidden="true"></i> </button>
+        </div>
+      </div>
+
+      <!-- Mobile nav (slides in) and overlay -->
+      <div class="menu-overlay" onclick="myFunction()"></div>
+      <nav class="md:hidden flex flex-col items-center gap-6 text-sm p-6" aria-label="Mobile navigation">
+        <a class="hover:text-indigo-600 transition-colors" href="#home" data-i18n="nav.home">Home</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#about" data-i18n="nav.about">About</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#methods" data-i18n="nav.methods">Methods</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#data" data-i18n="nav.data">Data &amp; Results</a>
+        <a href="empty_report.html" data-i18n="nav.report">Report</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#families" data-i18n="nav.families">For Families</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#team" data-i18n="nav.team">Team</a>
+        <a class="hover:text-indigo-600 transition-colors" href="#contact" data-i18n="nav.contact">Contact</a>
+        <!-- Mobile language selector inside menu for convenience -->
+        <div class="mt-2">
+          <label for="mobileLangSelect" class="sr-only">Language</label>
+          <select id="mobileLangSelect" class="rounded px-3 py-2 text-sm border border-slate-200 bg-white dark:bg-slate-800 dark:border-slate-700 text-slate-800 dark:text-slate-100">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
 </header>
 <!-- Hero -->
 <section class="relative overflow-hidden" id="home">
@@ -246,23 +284,23 @@
 <div class="mx-auto container container-narrow px-4 py-10 md:py-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 <div class="rounded-3xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 p-6 shadow-soft card-hover">
 <svg class="h-8 w-8 mx-auto text-indigo-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<p class="text-3xl font-extrabold text-indigo-600">800</p>
-<p class="text-sm text-slate-600 dark:text-slate-400">Adolescents</p>
+<p class="text-3xl font-extrabold text-indigo-600" data-i18n="stats.participants">800</p>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="stats.participantsLabel">Adolescents</p>
 </div>
 <div class="rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 p-6 shadow-soft card-hover">
 <svg class="h-8 w-8 mx-auto text-blue-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<p class="text-3xl font-extrabold text-blue-600">12–18</p>
-<p class="text-sm text-slate-600 dark:text-slate-400">Age range (years)</p>
+<p class="text-3xl font-extrabold text-blue-600" data-i18n="stats.ageRange">12–18</p>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="stats.ageRangeLabel">Age range (years)</p>
 </div>
 <div class="rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 p-6 shadow-soft card-hover">
 <svg class="h-8 w-8 mx-auto text-purple-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<p class="text-3xl font-extrabold text-purple-600">4</p>
-<p class="text-sm text-slate-600 dark:text-slate-400">Assessments across 2 years</p>
+<p class="text-3xl font-extrabold text-purple-600" data-i18n="stats.assessments">4</p>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="stats.assessmentsLabel">Assessments across 2 years</p>
 </div>
 <div class="rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 p-6 shadow-soft card-hover">
 <svg class="h-8 w-8 mx-auto text-emerald-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<p class="text-3xl font-extrabold text-emerald-600">2 × 1h</p>
-<p class="text-sm text-slate-600 dark:text-slate-400">Surveys &amp; tasks per visit</p>
+<p class="text-3xl font-extrabold text-emerald-600" data-i18n="stats.duration">2 × 1h</p>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="stats.durationLabel">Surveys &amp; tasks per visit</p>
 </div>
 </div>
 </section>
@@ -275,27 +313,27 @@
           Our Focus
         </div>
 <h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.aboutTitle">What we study</h2>
-<p class="mt-4 leading-relaxed">During adolescence, brains and lives change rapidly. We're interested in how <strong>digital media practices</strong>—such as social media, messaging, gaming, and video—relate to the development of <strong>executive functions</strong> like attention, working memory, inhibition, and flexibility. We look at opportunities as well as risks to understand <em>what helps</em> young people thrive.</p>
+<p class="mt-4 leading-relaxed" data-i18n="about.description">During adolescence, brains and lives change rapidly. We're interested in how <strong>digital media practices</strong>—such as social media, messaging, gaming, and video—relate to the development of <strong>executive functions</strong> like attention, working memory, inhibition, and flexibility. We look at opportunities as well as risks to understand <em>what helps</em> young people thrive.</p>
 <div class="mt-6 grid sm:grid-cols-2 gap-4">
 <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 card-hover bg-white dark:bg-slate-800">
 <svg class="h-6 w-6 text-indigo-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Digital media use</h3>
-<p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Types of devices and apps, time and context of use, family rules, night-time use, and more.</p>
+<h3 class="font-semibold" data-i18n="focus.media.title">Digital media use</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="focus.media.desc">Types of devices and apps, time and context of use, family rules, night-time use, and more.</p>
 </div>
 <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 card-hover bg-white dark:bg-slate-800">
 <svg class="h-6 w-6 text-purple-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Cognitive development</h3>
-<p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Gamified tasks assess attention, working memory, flexibility, planning, inhibition, and impulsivity.</p>
+<h3 class="font-semibold" data-i18n="focus.cognitive.title">Cognitive development</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="focus.cognitive.desc">Gamified tasks assess attention, working memory, flexibility, planning, inhibition, and impulsivity.</p>
 </div>
 <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 card-hover bg-white dark:bg-slate-800">
 <svg class="h-6 w-6 text-emerald-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Well-being &amp; health</h3>
-<p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Links with sleep, mood, anxiety, physical activity, and mental health conditions.</p>
+<h3 class="font-semibold" data-i18n="focus.wellbeing.title">Well-being &amp; health</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="focus.wellbeing.desc">Links with sleep, mood, anxiety, physical activity, and mental health conditions.</p>
 </div>
 <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 card-hover bg-white dark:bg-slate-800">
 <svg class="h-6 w-6 text-blue-600 mb-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Context matters</h3>
-<p class="text-sm text-slate-700 dark:text-slate-400 mt-1">Effects depend on the person, purpose, and type of activity—not just "screen time".</p>
+<h3 class="font-semibold" data-i18n="focus.context.title">Context matters</h3>
+<p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="focus.context.desc">Effects depend on the person, purpose, and type of activity—not just "screen time".</p>
 </div>
 </div>
 </div>
@@ -314,34 +352,34 @@
             Methodology
           </div>
 <h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.methodsTitle">How the study works</h2>
-<p class="mt-4 leading-relaxed">We combine two complementary approaches at each visit (about 2 hours total):</p>
+<p class="mt-4 leading-relaxed" data-i18n="methods.intro">We combine two complementary approaches at each visit (about 2 hours total):</p>
 <div class="mt-4 space-y-3">
 <div class="flex items-start gap-3">
 <svg class="h-5 w-5 text-indigo-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <div>
-<strong>Surveys (≈ 1h)</strong>
-<p class="text-sm text-slate-600 dark:text-slate-400">About media use, sleep, physical activity, and well-being.</p>
+<strong data-i18n="methods.surveys.title">Surveys (≈ 1h)</strong>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="methods.surveys.desc">About media use, sleep, physical activity, and well-being.</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <svg class="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <div>
-<strong>Gamified tasks (≈ 1h)</strong>
-<p class="text-sm text-slate-600 dark:text-slate-400">On tablets to measure executive functions.</p>
+<strong data-i18n="methods.tasks.title">Gamified tasks (≈ 1h)</strong>
+<p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="methods.tasks.desc">On tablets to measure executive functions.</p>
 </div>
 </div>
 </div>
 <div class="mt-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 border border-indigo-200 dark:border-indigo-800 p-6">
 <div class="space-y-4">
 <div>
-<h3 class="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-2">Swiss Sample</h3>
-<p class="text-slate-700 dark:text-slate-400">
+<h3 class="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-2" data-i18n="methods.swiss.title">Swiss Sample</h3>
+<p class="text-slate-700 dark:text-slate-400" data-i18n="methods.swiss.desc">
                   We collect data in French- and German-speaking schools in Switzerland with approval from the University of Geneva Ethics Committee. Participation is voluntary with consent from adolescents and a parent / guardian. Data are collected anonymously.
                 </p>
 </div>
 <div>
-<h3 class="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-2">Indian Sample</h3>
-<p class="text-slate-700 dark:text-slate-400">
+<h3 class="text-lg font-bold text-indigo-900 dark:text-indigo-200 mb-2" data-i18n="methods.indian.title">Indian Sample</h3>
+<p class="text-slate-700 dark:text-slate-400" data-i18n="methods.indian.desc">
                   We are extending data collection to India, thanks to a collaboration with Siamack Zahedi from ACRES foundation. The ACRES foundation is dedicated to excellence in Education with an incredible team committed to providing powerful, accessible education and empowering children with 21st skills, personal leadership and global citizenship. This new collaboration gives us the unique opportunity to study the diversity of media experiences and effects, including cultural differences.
                 </p>
 </div>
@@ -351,8 +389,8 @@
 <div class="flex items-start gap-3">
 <svg class="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 <div>
-<p class="text-sm font-semibold text-indigo-900 dark:text-indigo-200">Funding &amp; partners:</p>
-<p class="text-sm text-slate-700 dark:text-slate-400">Swiss National Science Foundation · UNIGE · UNIFR · ZHAW</p>
+<p class="text-sm font-semibold text-indigo-900 dark:text-indigo-200" data-i18n="methods.funding.title">Funding &amp; partners:</p>
+<p class="text-sm text-slate-700 dark:text-slate-400" data-i18n="methods.funding.desc">Swiss National Science Foundation · UNIGE · UNIFR · ZHAW</p>
 <div class="flex gap-4 mt-2 items-center">
 <img alt="Swiss National Science Foundation logo" class="h-16 w-auto object-contain" src="./src/logo_FNS.jpg"/>
 <img alt="UNIGE logo" class="h-16 w-auto object-contain" src="./src/UNIGE.png"/>
@@ -379,7 +417,7 @@
             Findings
           </div>
 <h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.dataTitle">Data &amp; results (demo)</h2>
-<p class="mt-2 text-slate-700 dark:text-slate-400">Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready.</p>
+<p class="mt-2 text-slate-700 dark:text-slate-400" data-i18n="data.description">Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready.</p>
 </div>
 <!-- Hide buttons
         <div class="mt-4 md:mt-0 flex gap-2">
@@ -396,11 +434,27 @@
 </div>
 <div class="grid md:grid-cols-2 gap-8">
 <div class="rounded-3xl bg-white dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 card-hover">
-<div class="flex items-center gap-2 mb-2">
-<svg class="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Time Spent on Device by Age (%)</h3>
+<div class="flex items-center gap-2 mb-2 justify-between">
+  <div class="flex items-center gap-2">
+    <svg class="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+    <h3 class="font-semibold" data-i18n="charts.timeSpent.title">Time spent on device by age (hours/week)</h3>
+  </div>
+  <div class="flex gap-2">
+    <button id="btnZoomChart" class="px-3 py-1 rounded-md text-sm bg-indigo-600 text-white hover:bg-indigo-700 transition" data-i18n="charts.timeSpent.openLarge">Open large view</button>
+  </div>
 </div>
 <canvas aria-label="Device ownership chart" height="10" id="chartTimeSpent" role="img"></canvas>
+
+<!-- Modal for chart (hidden by default) -->
+<div id="modalChartOverlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-60">
+  <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg w-[90%] md:w-3/4 lg:w-2/3 p-4 relative">
+    <button id="modalChartClose" class="absolute top-3 right-3 px-2 py-1 rounded text-sm bg-slate-200 dark:bg-slate-800">✕</button>
+    <h3 id="modalChartTitle" class="text-lg font-semibold mb-3"></h3>
+    <div class="h-[65vh]">
+      <canvas id="modalChartCanvas"></canvas>
+    </div>
+  </div>
+</div>
 </div>
 <div class="rounded-3xl bg-slate-200 dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 card-hover">
 <div class="flex items-center gap-2 mb-2">
@@ -420,6 +474,7 @@
 <p class="mt-4 text-xs text-slate-500 dark:text-slate-600">Charts are illustrative only.</p>
 </div>
 </section>
+
 <!-- Families & Teachers -->
 <section class="py-14 bg-white dark:bg-slate-900 border-y border-slate-200" id="families">
 <div class="mx-auto container container-narrow px-4 grid md:grid-cols-2 gap-10 items-start">
@@ -464,107 +519,9 @@
 </div>
 </div>
 </section>
-<!-- PLOTTER SECTION 
-<div id="plotterSection"></div>
 
-<script>
-  fetch('./interactive-plotter.html')
-    .then(response => response.text())
-    .then(html => {
-      // Extract body content
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      document.getElementById('plotterSection').innerHTML = doc.body.innerHTML;
-      
-      // Execute scripts
-      const scripts = doc.body.getElementsByTagName('script');
-      Array.from(scripts).forEach(script => {
-        const newScript = document.createElement('script');
-        newScript.textContent = script.textContent;
-        document.body.appendChild(newScript);
-      });
-    });
-</script>
--->
-<script>
-  // Simple client-side i18n
-  const translations = {
-    en: {
-      title: "MICAH – Media, Interaction, Cognition, Adolescents & Health",
-      metaDescription: "A friendly, modern demo site for the MICAH project showing positive visuals, clear structure, and sample data visualizations.",
-      nav: { home: "Home", about: "About", methods: "Methods", data: "Data & Results", report: "Report", families: "For Families", team: "Team", contact: "Contact" },
-      cta: { explore: "Explore results", whatStudy: "What we study", getInTouch: "Get in touch" },
-      hero: { tagline: "Media · Cognition · Adolescents · Health", h1: "Understanding how young people use digital media—and how it relates to learning, well-being, and health.", p: "MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers." },
-      sections: { aboutTitle: "What we study", methodsTitle: "How the study works", dataTitle: "Data & results (demo)", familiesTitle: "For families & teachers", teamTitle: "Team", contactTitle: "Get in touch" },
-      form: { name: "Name", email: "Email", message: "Message", send: "Send message", demoNote: "Demo form only." },
-      footer: { copy: "MICAH — Demo site", about: "About", methods: "Methods", data: "Data", families: "Families", team: "Team", contact: "Contact" }
-    },
-    fr: {
-      title: "MICAH – Médias, interaction, cognition, adolescents & santé",
-      metaDescription: "Site démo convivial pour le projet MICAH présentant des visuels positifs, une structure claire et des visualisations de données d'exemple.",
-      nav: { home: "Accueil", about: "À propos", methods: "Méthodes", data: "Données & Résultats", report: "Rapport", families: "Pour les familles", team: "Équipe", contact: "Contact" },
-      cta: { explore: "Explorer les résultats", whatStudy: "Ce que nous étudions", getInTouch: "Contactez-nous" },
-      hero: { tagline: "Médias · Cognition · Adolescents · Santé", h1: "Comprendre comment les jeunes utilisent les médias numériques — et comment cela se rapporte à l'apprentissage, au bien-être et à la santé.", p: "MICAH suit des adolescents dans le temps pour étudier les pratiques des médias numériques et les fonctions exécutives, afin d'informer les familles, les écoles et les chercheurs." },
-      sections: { aboutTitle: "Ce que nous étudions", methodsTitle: "Comment l'étude fonctionne", dataTitle: "Données & résultats (démo)", familiesTitle: "Pour les familles & enseignants", teamTitle: "Équipe", contactTitle: "Contactez-nous" },
-      form: { name: "Nom", email: "Courriel", message: "Message", send: "Envoyer", demoNote: "Formulaire de démonstration uniquement." },
-      footer: { copy: "MICAH — Site démo", about: "À propos", methods: "Méthodes", data: "Données", families: "Familles", team: "Équipe", contact: "Contact" }
-    },
-    de: {
-      title: "MICAH – Medien, Interaktion, Kognition, Jugendliche & Gesundheit",
-      metaDescription: "Eine freundliche Demo-Site für das MICAH-Projekt mit positiven Visualisierungen, klarer Struktur und Beispiel-Datenvisualisierungen.",
-      nav: { home: "Start", about: "Über uns", methods: "Methoden", data: "Daten & Ergebnisse", report: "Bericht", families: "Für Familien", team: "Team", contact: "Kontakt" },
-      cta: { explore: "Ergebnisse erkunden", whatStudy: "Was wir untersuchen", getInTouch: "Kontakt" },
-      hero: { tagline: "Medien · Kognition · Jugendliche · Gesundheit", h1: "Verstehen, wie junge Menschen digitale Medien nutzen — und wie das Lernen, Wohlbefinden und Gesundheit beeinflusst.", p: "MICAH begleitet Jugendliche über die Zeit, um digitale Medienpraktiken und exekutive Funktionen zu untersuchen und Familien, Schulen und Forschende zu informieren." },
-      sections: { aboutTitle: "Was wir untersuchen", methodsTitle: "Wie die Studie funktioniert", dataTitle: "Daten & Ergebnisse (Demo)", familiesTitle: "Für Familien & Lehrkräfte", teamTitle: "Team", contactTitle: "Kontakt" },
-      form: { name: "Name", email: "E-Mail", message: "Nachricht", send: "Senden", demoNote: "Nur Demo-Formular." },
-      footer: { copy: "MICAH — Demo-Site", about: "Über uns", methods: "Methoden", data: "Daten", families: "Familien", team: "Team", contact: "Kontakt" }
-    }
-  };
 
-  function t(keyPath, lang) {
-    lang = lang || (localStorage.getItem('lang') || 'en');
-    const parts = keyPath.split('.');
-    let cur = translations[lang] || translations['en'];
-    for (const p of parts) {
-      if (cur && Object.prototype.hasOwnProperty.call(cur, p)) cur = cur[p]; else return '';
-    }
-    return cur;
-  }
 
-  function applyTranslations(lang) {
-    // update html lang
-    document.documentElement.lang = lang;
-    // update title and meta
-    if (translations[lang] && translations[lang].title) document.title = translations[lang].title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta && translations[lang] && translations[lang].metaDescription) meta.setAttribute('content', translations[lang].metaDescription);
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const val = t(key, lang);
-      if (val !== undefined && val !== null) {
-        // preserve innerHTML for small tags if necessary
-        el.textContent = val;
-      }
-    });
-
-    // highlight active language button
-    document.querySelectorAll('.language-toggle [data-lang]').forEach(btn => {
-      if (btn.getAttribute('data-lang') === lang) btn.classList.add('bg-indigo-600','text-white'); else btn.classList.remove('bg-indigo-600','text-white');
-    });
-
-    localStorage.setItem('lang', lang);
-  }
-
-  function setLanguage(lang) { applyTranslations(lang); }
-
-  // Initialize language on load
-  document.addEventListener('DOMContentLoaded', () => {
-    const lang = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('fr') ? 'fr' : (navigator.language && navigator.language.startsWith('de') ? 'de' : 'en'));
-    applyTranslations(lang);
-  });
-</script>
--->
 <!-- Team -->
 <section class="py-14" id="team">
 <div class="mx-auto container container-narrow px-4">
@@ -735,6 +692,472 @@
 </div>
 </div>
 </footer>
+
+<script>
+  // Simple client-side i18n
+  const translations = {
+    en: {
+      title: "MICAH – Media, Interaction, Cognition, Adolescents & Health",
+      metaDescription: "A friendly, modern demo site for the MICAH project showing positive visuals, clear structure, and sample data visualizations.",
+      nav: { home: "Home", about: "About", methods: "Methods", data: "Data & Results", report: "Report", families: "For Families", team: "Team", contact: "Contact" },
+      cta: { explore: "Explore results", whatStudy: "What we study", getInTouch: "Get in touch" },
+      hero: { tagline: "Media · Cognition · Adolescents · Health", h1: "Understanding how young people use digital media—and how it relates to learning, well-being, and health.", p: "MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers." },
+      sections: { aboutTitle: "What we study", methodsTitle: "How the study works", dataTitle: "Data & results (demo)", familiesTitle: "For families & teachers", teamTitle: "Team", contactTitle: "Get in touch" },
+      stats: {
+        participants: "800",
+        participantsLabel: "Adolescents",
+        ageRange: "12–18",
+        ageRangeLabel: "Age range (years)",
+        assessments: "4",
+        assessmentsLabel: "Assessments across 2 years",
+        duration: "2 × 1h",
+        durationLabel: "Surveys & tasks per visit"
+      },
+      methods: {
+        intro: "We combine two complementary approaches at each visit (about 2 hours total):",
+        surveys: {
+          title: "Surveys (≈ 1h)",
+          desc: "About media use, sleep, physical activity, and well-being."
+        },
+        tasks: {
+          title: "Gamified tasks (≈ 1h)",
+          desc: "On tablets to measure executive functions."
+        },
+        swiss: {
+          title: "Swiss Sample",
+          desc: "We collect data in French- and German-speaking schools in Switzerland with approval from the University of Geneva Ethics Committee. Participation is voluntary with consent from adolescents and a parent / guardian. Data are collected anonymously."
+        },
+        indian: {
+          title: "Indian Sample",
+          desc: "We are extending data collection to India, thanks to a collaboration with Siamack Zahedi from ACRES foundation. The ACRES foundation is dedicated to excellence in Education with an incredible team committed to providing powerful, accessible education and empowering children with 21st skills, personal leadership and global citizenship. This new collaboration gives us the unique opportunity to study the diversity of media experiences and effects, including cultural differences."
+        },
+        funding: {
+          title: "Funding & partners:",
+          desc: "Swiss National Science Foundation · UNIGE · UNIFR · ZHAW"
+        }
+      },
+      about: {
+        description: "During adolescence, brains and lives change rapidly. We're interested in how digital media practices—such as social media, messaging, gaming, and video—relate to the development of executive functions like attention, working memory, inhibition, and flexibility. We look at opportunities as well as risks to understand what helps young people thrive."
+      },
+      focus: {
+        media: {
+          title: "Digital media use",
+          desc: "Types of devices and apps, time and context of use, family rules, night-time use, and more."
+        },
+        cognitive: {
+          title: "Cognitive development",
+          desc: "Gamified tasks assess attention, working memory, flexibility, planning, inhibition, and impulsivity."
+        },
+        wellbeing: {
+          title: "Well-being & health",
+          desc: "Links with sleep, mood, anxiety, physical activity, and mental health conditions."
+        },
+        context: {
+          title: "Context matters",
+          desc: "Effects depend on the person, purpose, and type of activity—not just 'screen time'."
+        }
+      },
+      data: {
+        description: "Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready."
+      },
+      charts: {
+        timeSpent: {
+          title: "Time spent on device by age (hours/week)",
+          openLarge: "Open large view",
+          xAxis: "Age",
+          yAxis: "Hours per week"
+        }
+      },
+      form: { name: "Name", email: "Email", message: "Message", send: "Send message", demoNote: "Demo form only." },
+      footer: { copy: "MICAH — Demo site", about: "About", methods: "Methods", data: "Data", families: "Families", team: "Team", contact: "Contact" }
+    },
+    fr: {
+      title: "MICAH – Médias, interaction, cognition, adolescents & santé",
+      metaDescription: "Site démo convivial pour le projet MICAH présentant des visuels positifs, une structure claire et des visualisations de données d'exemple.",
+      nav: { home: "Accueil", about: "À propos", methods: "Méthodes", data: "Données & Résultats", report: "Rapport", families: "Pour les familles", team: "Équipe", contact: "Contact" },
+      cta: { explore: "Explorer les résultats", whatStudy: "Ce que nous étudions", getInTouch: "Contactez-nous" },
+      hero: { tagline: "Médias · Cognition · Adolescents · Santé", h1: "Comprendre comment les jeunes utilisent les médias numériques — et comment cela se rapporte à l'apprentissage, au bien-être et à la santé.", p: "MICAH suit des adolescents dans le temps pour étudier les pratiques des médias numériques et les fonctions exécutives, afin d'informer les familles, les écoles et les chercheurs." },
+      sections: { aboutTitle: "Ce que nous étudions", methodsTitle: "Comment l'étude fonctionne", dataTitle: "Données & résultats (démo)", familiesTitle: "Pour les familles & enseignants", teamTitle: "Équipe", contactTitle: "Contactez-nous" },
+      stats: {
+        participants: "800",
+        participantsLabel: "Adolescents",
+        ageRange: "12–18",
+        ageRangeLabel: "Tranche d'âge (ans)",
+        assessments: "4",
+        assessmentsLabel: "Évaluations sur 2 ans",
+        duration: "2 × 1h",
+        durationLabel: "Questionnaires & tâches par visite"
+      },
+      methods: {
+        intro: "Nous combinons deux approches complémentaires à chaque visite (environ 2 heures au total) :",
+        surveys: {
+          title: "Questionnaires (≈ 1h)",
+          desc: "Sur l'utilisation des médias, le sommeil, l'activité physique et le bien-être."
+        },
+        tasks: {
+          title: "Tâches ludiques (≈ 1h)",
+          desc: "Sur tablettes pour mesurer les fonctions exécutives."
+        },
+        swiss: {
+          title: "Échantillon suisse",
+          desc: "Nous collectons des données dans les écoles francophones et germanophones de Suisse avec l'approbation du Comité d'éthique de l'Université de Genève. La participation est volontaire avec le consentement des adolescents et d'un parent/tuteur. Les données sont collectées de manière anonyme."
+        },
+        indian: {
+          title: "Échantillon indien",
+          desc: "Nous étendons la collecte de données à l'Inde, grâce à une collaboration avec Siamack Zahedi de la fondation ACRES. La fondation ACRES est dédiée à l'excellence en éducation avec une équipe incroyable engagée à fournir une éducation puissante et accessible, et à doter les enfants de compétences du 21e siècle, de leadership personnel et de citoyenneté mondiale. Cette nouvelle collaboration nous donne l'opportunité unique d'étudier la diversité des expériences et des effets des médias, y compris les différences culturelles."
+        },
+        funding: {
+          title: "Financement & partenaires :",
+          desc: "Fonds National Suisse · UNIGE · UNIFR · ZHAW"
+        }
+      },
+      about: {
+        description: "Pendant l'adolescence, le cerveau et la vie changent rapidement. Nous nous intéressons à la façon dont les pratiques des médias numériques — comme les réseaux sociaux, la messagerie, les jeux et les vidéos — sont liées au développement des fonctions exécutives comme l'attention, la mémoire de travail, l'inhibition et la flexibilité. Nous examinons les opportunités et les risques pour comprendre ce qui aide les jeunes à s'épanouir."
+      },
+      focus: {
+        media: {
+          title: "Usage des médias numériques",
+          desc: "Types d'appareils et d'applications, temps et contexte d'utilisation, règles familiales, utilisation nocturne, et plus encore."
+        },
+        cognitive: {
+          title: "Développement cognitif",
+          desc: "Des tâches ludiques évaluent l'attention, la mémoire de travail, la flexibilité, la planification, l'inhibition et l'impulsivité."
+        },
+        wellbeing: {
+          title: "Bien-être & santé",
+          desc: "Liens avec le sommeil, l'humeur, l'anxiété, l'activité physique et la santé mentale."
+        },
+        context: {
+          title: "Le contexte compte",
+          desc: "Les effets dépendent de la personne, du but et du type d'activité — pas seulement du 'temps d'écran'."
+        }
+      },
+      data: {
+        description: "Voici des exemples de visualisations illustrant les types de résumés que nous pouvons partager. Ces graphiques utilisent des données fictives et seront remplacés par des données réelles lorsqu'elles seront disponibles."
+      },
+      charts: {
+        timeSpent: {
+          title: "Temps passé par appareil selon l'âge (heures/semaine)",
+          openLarge: "Ouvrir en grand",
+          xAxis: "Âge",
+          yAxis: "Heures par semaine"
+        }
+      },
+      form: { name: "Nom", email: "Courriel", message: "Message", send: "Envoyer", demoNote: "Formulaire de démonstration uniquement." },
+      footer: { copy: "MICAH — Site démo", about: "À propos", methods: "Méthodes", data: "Données", families: "Familles", team: "Équipe", contact: "Contact" }
+    },
+    de: {
+      title: "MICAH – Medien, Interaktion, Kognition, Jugendliche & Gesundheit",
+      metaDescription: "Eine freundliche Demo-Site für das MICAH-Projekt mit positiven Visualisierungen, klarer Struktur und Beispiel-Datenvisualisierungen.",
+      nav: { home: "Start", about: "Über uns", methods: "Methoden", data: "Daten & Ergebnisse", report: "Bericht", families: "Für Familien", team: "Team", contact: "Kontakt" },
+      cta: { explore: "Ergebnisse erkunden", whatStudy: "Was wir untersuchen", getInTouch: "Kontakt" },
+      hero: { tagline: "Medien · Kognition · Jugendliche · Gesundheit", h1: "Verstehen, wie junge Menschen digitale Medien nutzen — und wie das Lernen, Wohlbefinden und Gesundheit beeinflusst.", p: "MICAH begleitet Jugendliche über die Zeit, um digitale Medienpraktiken und exekutive Funktionen zu untersuchen und Familien, Schulen und Forschende zu informieren." },
+      sections: { aboutTitle: "Was wir untersuchen", methodsTitle: "Wie die Studie funktioniert", dataTitle: "Daten & Ergebnisse (Demo)", familiesTitle: "Für Familien & Lehrkräfte", teamTitle: "Team", contactTitle: "Kontakt" },
+      stats: {
+        participants: "800",
+        participantsLabel: "Jugendliche",
+        ageRange: "12–18",
+        ageRangeLabel: "Altersbereich (Jahre)",
+        assessments: "4",
+        assessmentsLabel: "Erhebungen über 2 Jahre",
+        duration: "2 × 1h",
+        durationLabel: "Fragebögen & Aufgaben pro Besuch"
+      },
+      methods: {
+        intro: "Wir kombinieren bei jedem Besuch zwei komplementäre Ansätze (insgesamt etwa 2 Stunden):",
+        surveys: {
+          title: "Fragebögen (≈ 1h)",
+          desc: "Über Mediennutzung, Schlaf, körperliche Aktivität und Wohlbefinden."
+        },
+        tasks: {
+          title: "Spielerische Aufgaben (≈ 1h)",
+          desc: "Auf Tablets zur Messung der exekutiven Funktionen."
+        },
+        swiss: {
+          title: "Schweizer Stichprobe",
+          desc: "Wir erheben Daten in französisch- und deutschsprachigen Schulen in der Schweiz mit Genehmigung der Ethikkommission der Universität Genf. Die Teilnahme ist freiwillig mit Einwilligung der Jugendlichen und eines Elternteils/Erziehungsberechtigten. Die Daten werden anonym erhoben."
+        },
+        indian: {
+          title: "Indische Stichprobe",
+          desc: "Wir erweitern die Datenerhebung nach Indien, dank einer Zusammenarbeit mit Siamack Zahedi von der ACRES Foundation. Die ACRES Foundation widmet sich der Exzellenz in der Bildung mit einem unglaublichen Team, das sich für eine starke, zugängliche Bildung einsetzt und Kinder mit Fähigkeiten des 21. Jahrhunderts, persönlicher Führung und globaler Bürgerschaft ausstattet. Diese neue Zusammenarbeit gibt uns die einzigartige Möglichkeit, die Vielfalt der Medienerfahrungen und -effekte, einschließlich kultureller Unterschiede, zu untersuchen."
+        },
+        funding: {
+          title: "Förderung & Partner:",
+          desc: "Schweizerischer Nationalfonds · UNIGE · UNIFR · ZHAW"
+        }
+      },
+      about: {
+        description: "Während der Jugend verändern sich Gehirn und Leben rasant. Wir interessieren uns dafür, wie digitale Medienpraktiken — wie soziale Medien, Messaging, Gaming und Video — mit der Entwicklung exekutiver Funktionen wie Aufmerksamkeit, Arbeitsgedächtnis, Hemmung und Flexibilität zusammenhängen. Wir betrachten Chancen und Risiken, um zu verstehen, was jungen Menschen hilft, sich gut zu entwickeln."
+      },
+      focus: {
+        media: {
+          title: "Digitale Mediennutzung",
+          desc: "Arten von Geräten und Apps, Zeit und Kontext der Nutzung, Familienregeln, nächtliche Nutzung und mehr."
+        },
+        cognitive: {
+          title: "Kognitive Entwicklung",
+          desc: "Spielerische Aufgaben bewerten Aufmerksamkeit, Arbeitsgedächtnis, Flexibilität, Planung, Hemmung und Impulsivität."
+        },
+        wellbeing: {
+          title: "Wohlbefinden & Gesundheit",
+          desc: "Zusammenhänge mit Schlaf, Stimmung, Angst, körperlicher Aktivität und psychischer Gesundheit."
+        },
+        context: {
+          title: "Kontext ist wichtig",
+          desc: "Die Auswirkungen hängen von der Person, dem Zweck und der Art der Aktivität ab — nicht nur von der 'Bildschirmzeit'."
+        }
+      },
+      data: {
+        description: "Hier sind Beispiel-Visualisierungen, die die Art der Zusammenfassungen zeigen, die wir teilen können. Diese Grafiken verwenden Beispieldaten und werden durch echte Daten ersetzt, sobald diese verfügbar sind."
+      },
+      charts: {
+        timeSpent: {
+          title: "Bildschirmzeit nach Gerät und Alter (Stunden/Woche)",
+          openLarge: "In groß anzeigen",
+          xAxis: "Alter",
+          yAxis: "Stunden pro Woche"
+        }
+      },
+      form: { name: "Name", email: "E-Mail", message: "Nachricht", send: "Senden", demoNote: "Nur Demo-Formular." },
+      footer: { copy: "MICAH — Demo-Site", about: "Über uns", methods: "Methoden", data: "Daten", families: "Familien", team: "Team", contact: "Kontakt" }
+    }
+  };
+
+  function t(keyPath, lang) {
+    lang = lang || (localStorage.getItem('lang') || 'en');
+    const parts = keyPath.split('.');
+    let cur = translations[lang] || translations['en'];
+    for (const p of parts) {
+      if (cur && Object.prototype.hasOwnProperty.call(cur, p)) cur = cur[p]; else return '';
+    }
+    return cur;
+  }
+
+  function applyTranslations(lang) {
+    // update html lang
+    document.documentElement.lang = lang;
+    // update title and meta
+    if (translations[lang] && translations[lang].title) document.title = translations[lang].title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta && translations[lang] && translations[lang].metaDescription) meta.setAttribute('content', translations[lang].metaDescription);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = t(key, lang);
+      if (val !== undefined && val !== null) {
+        // preserve innerHTML for small tags if necessary
+        el.textContent = val;
+      }
+    });
+
+    // keep language selects in sync (desktop + mobile)
+    const sel = document.getElementById('langSelect');
+    const selMobile = document.getElementById('mobileLangSelect');
+    if (sel) sel.value = lang;
+    if (selMobile) selMobile.value = lang;
+
+    // Update chart titles/axes if charts exist
+    if (typeof updateChartTranslations === 'function') updateChartTranslations(lang);
+
+    localStorage.setItem('lang', lang);
+  }
+
+  function setLanguage(lang) { applyTranslations(lang); }
+
+  // Initialize language on load and wire language select elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('fr') ? 'fr' : (navigator.language && navigator.language.startsWith('de') ? 'de' : 'en'));
+    applyTranslations(lang);
+
+    // Wire up desktop language select
+    const sel = document.getElementById('langSelect');
+    if (sel) {
+      sel.addEventListener('change', (e) => {
+        const chosen = e.target.value;
+        if (chosen) setLanguage(chosen);
+      });
+    }
+
+    // Wire up mobile language select (inside mobile menu)
+    const selMobile = document.getElementById('mobileLangSelect');
+    if (selMobile) {
+      selMobile.addEventListener('change', (e) => {
+        const chosen = e.target.value;
+        if (chosen) setLanguage(chosen);
+      });
+    }
+  });
+</script>
+
+<script>
+  // Function to load and parse CSV data with robust header normalization
+  function parseCSVText(csvText) {
+    const rows = csvText.trim().split('\n').map(row => row.split(','));
+    const rawHeaders = rows[0].map(h => h.trim());
+    const headers = rawHeaders.map(h => h ? h.toLowerCase().replace(/\s+/g, '_') : 'col_empty');
+    return rows.slice(1).map(row => {
+      const obj = {};
+      headers.forEach((header, i) => {
+        const raw = (row[i] || '').trim();
+        const num = parseFloat(raw);
+        obj[header] = (raw === '' ? null : (isNaN(num) ? raw : num));
+      });
+      return obj;
+    });
+  }
+
+  async function loadCSVData(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Failed to fetch CSV: ' + response.status);
+    const csvText = await response.text();
+    return parseCSVText(csvText);
+  }
+
+  // Initialize charts when DOM is loaded
+  document.addEventListener('DOMContentLoaded', async function() {
+    try {
+      // Load data from CSV (with inline fallback for local file viewing)
+      let data;
+      try {
+        data = await loadCSVData('./data/timespent_device.csv');
+      } catch (err) {
+        console.warn('Could not fetch CSV file, using embedded fallback data. Error:', err);
+        const fallbackCSV = `,age,timepoint,computer,smartphone,tablet,TV,gaming console
+1,12,t1,7.462765957,16.90425532,3.345744681,7.622340426,6.234042553
+2,13,t1,7.911174785,20.38252149,4.714899713,8.951289398,9.323782235
+3,14,t1,11.45604396,24.6978022,3.901098901,7.615384615,10.73626374
+4,15,t1,22.38059701,32.05223881,2.6171875,5.753846154,9.78030303
+5,16,t1,25.11363636,27.7706422,2.609090909,5.963636364,5.75
+6,17,t1,20.64754098,29.99180328,2.721311475,6.286885246,3.93442623`;
+        data = parseCSVText(fallbackCSV);
+      }
+      
+      // Process data for the chart
+      // Our CSV parser normalized headers to lowercase with underscores
+      // e.g. 'age', 'computer', 'smartphone', 'tablet', 'tv', 'gaming_console'
+      const ages = [...new Set(data.map(d => Number(d.age)))].filter(a => !isNaN(a)).sort((a,b) => a - b);
+      const deviceKeys = ['computer', 'smartphone', 'tablet', 'tv', 'gaming_console'];
+      const deviceLabels = {
+        computer: 'Computer',
+        smartphone: 'Smartphone',
+        tablet: 'Tablet',
+        tv: 'TV',
+        gaming_console: 'Gaming console'
+      };
+
+      const deviceData = deviceKeys.map(key => ({
+        label: deviceLabels[key] || key,
+        data: ages.map(age => {
+          const row = data.find(d => Number(d.age) === age);
+          return row && row[key] != null ? Number(row[key]) : null;
+        })
+      }));
+
+      // Create time spent by device chart
+      const timeSpentCtx = document.getElementById('chartTimeSpent').getContext('2d');
+  window.timeSpentChart = new Chart(timeSpentCtx, {
+        type: 'line',
+        data: {
+          labels: ages,
+          datasets: deviceData.map((device, i) => ({
+            label: device.label,
+            data: device.data,
+            borderColor: [
+              'rgb(99, 102, 241)', // indigo
+              'rgb(59, 130, 246)', // blue
+              'rgb(147, 51, 234)', // purple
+              'rgb(16, 185, 129)', // emerald
+              'rgb(249, 115, 22)'  // orange
+            ][i],
+            tension: 0.4,
+            fill: false
+          }))
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: t('charts.timeSpent.title', localStorage.getItem('lang')) || 'Time spent on device by age (hours/week)',
+              font: { size: 16, weight: 'bold' }
+            },
+            legend: {
+              position: 'bottom',
+              labels: { usePointStyle: true }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: t('charts.timeSpent.yAxis', localStorage.getItem('lang')) || 'Hours per week'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: t('charts.timeSpent.xAxis', localStorage.getItem('lang')) || 'Age'
+              }
+            }
+          }
+        }
+      });
+
+      // Wire the Open Larger button to open the chart in a new window
+      const btnZoom = document.getElementById('btnZoomChart');
+      if (btnZoom) {
+        btnZoom.addEventListener('click', () => {
+          const chart = window.timeSpentChart || Chart.getChart(document.getElementById('chartTimeSpent'));
+          if (chart) openLargeChart(chart);
+          else console.warn('Chart not ready yet');
+        });
+      }
+    } catch (error) {
+      console.error('Error loading or rendering chart:', error);
+    }
+  });
+</script>
+<script>
+  // Update chart text when language changes
+  function updateChartTranslations(lang) {
+    try {
+      const chart = window.timeSpentChart || Chart.getChart(document.getElementById('chartTimeSpent'));
+      if (chart) {
+        const title = t('charts.timeSpent.title', lang) || 'Time spent on device by age (hours/week)';
+        const xAxis = t('charts.timeSpent.xAxis', lang) || 'Age';
+        const yAxis = t('charts.timeSpent.yAxis', lang) || 'Hours per week';
+        if (chart.options && chart.options.plugins && chart.options.plugins.title) chart.options.plugins.title.text = title;
+        if (chart.options && chart.options.scales && chart.options.scales.x && chart.options.scales.x.title) chart.options.scales.x.title.text = xAxis;
+        if (chart.options && chart.options.scales && chart.options.scales.y && chart.options.scales.y.title) chart.options.scales.y.title.text = yAxis;
+        chart.update();
+      }
+    } catch (e) {
+      console.warn('updateChartTranslations failed', e);
+    }
+  }
+
+  // Open a large view of a chart in a new window
+  function openLargeChart(chart) {
+    try {
+      const labels = chart.data.labels || [];
+      const datasets = chart.data.datasets || [];
+      const title = (chart.options && chart.options.plugins && chart.options.plugins.title && chart.options.plugins.title.text) || '';
+      const xAxis = (chart.options && chart.options.scales && chart.options.scales.x && chart.options.scales.x.title && chart.options.scales.x.title.text) || '';
+      const yAxis = (chart.options && chart.options.scales && chart.options.scales.y && chart.options.scales.y.title && chart.options.scales.y.title.text) || '';
+
+    const child = window.open('', '_blank');
+    const doc = child.document;
+  // Build a minimal safe HTML for the large chart (remove raw ${title} injection)
+  const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title></title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;padding:18px;background:#fff;color:#111}canvas{max-width:100%;height:80vh}</style></head><body><canvas id="largeChart"></canvas><script>const labels=${JSON.stringify(labels)};const datasets=${JSON.stringify(datasets)};const ctx=document.getElementById('largeChart').getContext('2d');new Chart(ctx,{type:'line',data:{labels:labels,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:${JSON.stringify(title)}},legend:{position:'bottom'}},scales:{x:{title:{display:true,text:${JSON.stringify(xAxis)}}},y:{title:{display:true,text:${JSON.stringify(yAxis)}}}}});<\/script></body></html>`;
+    doc.open(); doc.write(html); doc.close();
+    } catch (e) {
+      console.error('Failed to open large chart', e);
+    }
+  }
+</script>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   
@@ -755,79 +1178,11 @@
   });
   
   // Chart helpers
-  //function rand(n, base=0) { return Array.from({length:n}, () => (Math.random()*0.6 + base).toFixed(2)); }
+  function rand(n, base=0) { return Array.from({length:n}, () => parseFloat((Math.random()*0.6 + base).toFixed(2))); }
 
   // Device time spent by age
-  const ownershipCtx = document.getElementById('chartTimeSpent');
-
-  // Define your CSV data as a string (or load from file)
-  const csvData = `AGE_NB_t1,timepoint,COMP,SP,TAB,TV,VG
-  12,t1,7.46,16.9,3.35,7.62,6.23
-  13,t1,7.91,20.4,4.71,8.95,9.32
-  14,t1,11.5,24.7,3.90,7.62,10.7
-  15,t1,22.4,32.1,2.62,5.75,9.78
-  16,t1,25.1,27.8,2.61,5.96,5.75
-  17,t1,20.6,30.0,2.72,6.29,3.93`;
-
-  // Parse CSV
-  const lines = csvData.trim().split('\n');
-  const headers = lines[0].split(',');
-  const data = lines.slice(1).map(line => {
-    const values = line.split(',');
-    return {
-      age: parseFloat(values[0]),
-      COMP: parseFloat(values[2]),
-      SP: parseFloat(values[3]),
-      TAB: parseFloat(values[4]),
-      TV: parseFloat(values[5]),
-      VG: parseFloat(values[6])
-    };
-  });
-
-  // Extract data for chart
-  const ages = data.map(d => d.age);
-  const comp = data.map(d => d.COMP);
-  const sp = data.map(d => d.SP);
-  const tab = data.map(d => d.TAB);
-  const tv = data.map(d => d.TV);
-  const vg = data.map(d => d.VG);
-
-  // Nice colors for devices
-  const colors = {
-    SP: '#3B82F6',    // Blue - Smartphone
-    COMP: '#10B981',  // Green - Computer
-    TAB: '#F59E0B',   // Orange - Tablet
-    VG: '#8B5CF6',    // Purple - Video Games
-    TV: '#EC4899'     // Pink - TV
-  };
-
-  new Chart(ownershipCtx, {
-    type: 'line',
-    data: {
-      labels: ages,
-      datasets: [
-        { label: 'Smartphone', data: sp, tension: 0.3, borderWidth: 2, pointRadius: 3, borderColor: colors.SP, backgroundColor: colors.SP },
-        { label: 'Computer', data: comp, tension: 0.3, borderWidth: 2, pointRadius: 3, borderColor: colors.COMP, backgroundColor: colors.COMP },
-        { label: 'Tablet', data: tab, tension: 0.3, borderWidth: 2, pointRadius: 3, borderColor: colors.TAB, backgroundColor: colors.TAB },
-        { label: 'Video Games', data: vg, tension: 0.3, borderWidth: 2, pointRadius: 3, borderColor: colors.VG, backgroundColor: colors.VG },
-        { label: 'TV', data: tv, tension: 0.3, borderWidth: 2, pointRadius: 3, borderColor: colors.TV, backgroundColor: colors.TV }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: { 
-        y: { 
-          beginAtZero: true, 
-          title: { display: true, text: 'Time spent (hours/week)' }
-        },
-        x: {
-          title: { display: true, text: 'Age' }
-        }
-      },
-      plugins: { legend: { position: 'bottom' } }
-    }
-  });  
+  // Device chart is initialized via the CSV loader added earlier.
+  // The async CSV loader creates a chart on the canvas with id="chartTimeSpent".
 
   // Executive function composite across assessments (demo)
   const efCtx = document.getElementById('chartEF');
@@ -852,18 +1207,23 @@
 
   // Randomize button for demo charts
   document.getElementById('btnRefresh').addEventListener('click', () => {
-    const ch1 = Chart.getChart(ownershipCtx);
-    ch1.data.datasets[0].data = rand(7, 0.4).map(v => (v*100).toFixed(0));
-    ch1.data.datasets[1].data = rand(7, 0.3).map(v => (v*100).toFixed(0));
-    ch1.update();
+    const ch1 = Chart.getChart(document.getElementById('chartTimeSpent'));
+    if (ch1) {
+      ch1.data.datasets.forEach((ds, i) => { ds.data = rand(ch1.data.labels.length, 0.4 + i*0.1); });
+      ch1.update();
+    }
 
-    const ch2 = Chart.getChart(efCtx);
-    ch2.data.datasets[0].data = rand(4, -0.2).map(v=> (parseFloat(v)-0.1).toFixed(2));
-    ch2.update();
+    const ch2 = Chart.getChart(document.getElementById('chartEF'));
+    if (ch2) {
+      ch2.data.datasets[0].data = rand(4, -0.2).map(v => parseFloat((v - 0.1).toFixed(2)));
+      ch2.update();
+    }
 
-    const ch3 = Chart.getChart(wbCtx);
-    ch3.data.datasets[0].data = rand(4, 6.4).map(v=> (parseFloat(v)+0.8).toFixed(1));
-    ch3.update();
+    const ch3 = Chart.getChart(document.getElementById('chartWB'));
+    if (ch3) {
+      ch3.data.datasets[0].data = rand(4, 6.4).map(v => parseFloat((v + 0.8).toFixed(1)));
+      ch3.update();
+    }
   });
 
 
