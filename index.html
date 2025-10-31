@@ -58,7 +58,7 @@
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.45);
+        background: rgba(0,0,0,0.22); /* lighter overlay on mobile */
         z-index: 40;
         transition: opacity 0.25s ease;
         opacity: 0;
@@ -76,17 +76,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.25rem;
+        gap: 1rem;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
-        height: 100vh;
-        background-color: white;
-        padding: 2.5rem 1.5rem;
+        height: 70vh; /* smaller on mobile */
+        background-color: rgba(255,255,255,0.94);
+        padding: 1.25rem 1rem; /* reduced padding */
         transform: translateY(-100%);
         transition: transform 0.35s cubic-bezier(.2,.9,.2,1);
         z-index: 50;
+        backdrop-filter: blur(6px);
       }
 
       .dark .topnav nav {
@@ -101,23 +102,24 @@
       /* Show the hamburger / close button on mobile */
       .topnav button.icon {
         display: block;
-        background: none;
+        background: rgba(255,255,255,0.06);
         border: none;
-        font-size: 1.25rem;
-        padding: 0.5rem;
+        font-size: 1rem; /* smaller hamburger */
+        padding: 0.25rem; /* tighter */
         color: inherit;
         z-index: 60; /* keep above overlay */
+        border-radius: 6px;
       }
 
       /* Larger, tappable links */
       .topnav nav a {
-        padding: 0.75rem 1rem;
-        font-size: 1.125rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem; /* slightly smaller text for mobile */
         font-weight: 600;
         color: #0f172a;
         width: 100%;
         text-align: center;
-        border-radius: 0.5rem;
+        border-radius: 0.375rem;
         transition: background-color 0.15s ease, color 0.15s ease;
       }
 
@@ -172,8 +174,8 @@
       object-fit: cover;
       border-radius: 50%;
     }
-
   </style>
+
 </meta><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/></head>
 <body class="bg-slate-50 text-slate-800"><div class="container mt-4">
 <!-- Top bar -->
@@ -254,31 +256,32 @@
 <section class="relative overflow-hidden" id="home">
 <img alt="Smiling teens collaborating with a tablet" class="absolute inset-0 h-full w-full object-cover" src="./src/img_home.png"/>
 <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-purple-900/40"></div>
-<div class="relative">
-<div class="mx-auto container container-narrow px-4">
-<div class="py-24 md:py-40">
-<div class="max-w-2xl glass rounded-3xl p-6 md:p-10 shadow-glow border border-white/20">
-            <div class="flex items-center gap-2 text-sm uppercase tracking-widest text-indigo-400 font-semibold">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+  <div class="relative">
+    <div class="mx-auto container container-narrow px-4">
+      <div class="py-24 md:py-40">
+        <div class="max-w-2xl glass rounded-3xl p-6 md:p-10 shadow-glow border border-white/20">
+          <div class="flex items-center gap-2 text-sm uppercase tracking-widest text-indigo-400 font-semibold">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
               <span data-i18n="hero.tagline">Media · Cognition · Adolescents · Health</span>
-            </div>
-<h1 class="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight" data-i18n="hero.h1">Understanding how young people use digital media—and how it relates to learning, well-being, and health.</h1>
-<p class="mt-4 text-slate-200" data-i18n="hero.p">MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers.</p>
-<div class="mt-6 flex gap-3">
-<a class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-slate-900 text-sm font-medium shadow-soft hover:bg-white/20 transition-all" href="#data" data-i18n="cta.explore">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+            <h1 class="mt-3 text-3xl md:text-5xl font-extrabold text-white leading-tight" data-i18n="hero.h1">Understanding how young people use digital media—and how it relates to learning, well-being, and health.</h1>
+            <p class="mt-4 text-slate-200" data-i18n="hero.p">MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers.</p>
+          <div class="mt-6 flex gap-3">
+            <a class="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-slate-900 text-sm font-medium shadow-soft hover:bg-white/20 transition-all" href="#data" data-i18n="cta.explore">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 Explore results
-              </a>
-<a class="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur px-5 py-2.5 text-white text-sm font-medium shadow-soft ring-1 ring-white/20 hover:bg-white/20 transition-all" href="#about" data-i18n="cta.whatStudy">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </a>
+            <a class="inline-flex items-center gap-2 rounded-2xl bg-white/10 backdrop-blur px-5 py-2.5 text-white text-sm font-medium shadow-soft ring-1 ring-white/20 hover:bg-white/20 transition-all" href="#about" data-i18n="cta.whatStudy">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 What we study
-              </a>
-</div>
-</div>
-</div>
-</div>
-</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <!-- Quick stats -->
 <section class="bg-white dark:bg-slate-900 border-y border-slate-200">
 <div class="mx-auto container container-narrow px-4 py-10 md:py-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -407,72 +410,70 @@
 </div>
 </div>
 </section>
+
 <!-- Data &amp; Results -->
 <section class="py-14" id="data">
-<div class="mx-auto container container-narrow px-4">
-<div class="mb-8 md:flex items-end justify-between gap-6">
-<div>
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-            Findings
-          </div>
-<h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.dataTitle">Data &amp; results (demo)</h2>
-<p class="mt-2 text-slate-700 dark:text-slate-400" data-i18n="data.description">Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready.</p>
-</div>
-<!-- Hide buttons
-        <div class="mt-4 md:mt-0 flex gap-2">
-          <button id="btnRefresh" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2 text-sm shadow-soft hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-            Randomize demo
-          </button>
-          <a href="#families" class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-white text-sm shadow-soft hover:bg-indigo-700 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-            Plain-language view
-          </a>
+  <div class="mx-auto container container-narrow px-4">
+    <div class="mb-8 md:flex items-end justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Findings
         </div>
-        -->
-</div>
-<div class="grid md:grid-cols-2 gap-8">
-<div class="rounded-3xl bg-white dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 card-hover">
-<div class="flex items-center gap-2 mb-2 justify-between">
-  <div class="flex items-center gap-2">
-    <svg class="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-    <h3 class="font-semibold" data-i18n="charts.timeSpent.title">Time spent on device by age (hours/week)</h3>
-  </div>
-  <div class="flex gap-2">
-    <button id="btnZoomChart" class="px-3 py-1 rounded-md text-sm bg-indigo-600 text-white hover:bg-indigo-700 transition" data-i18n="charts.timeSpent.openLarge">Open large view</button>
-  </div>
-</div>
-<canvas aria-label="Device ownership chart" height="10" id="chartTimeSpent" role="img"></canvas>
-
-<!-- Modal for chart (hidden by default) -->
-<div id="modalChartOverlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-60">
-  <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg w-[90%] md:w-3/4 lg:w-2/3 p-4 relative">
-    <button id="modalChartClose" class="absolute top-3 right-3 px-2 py-1 rounded text-sm bg-slate-200 dark:bg-slate-800">✕</button>
-    <h3 id="modalChartTitle" class="text-lg font-semibold mb-3"></h3>
-    <div class="h-[65vh]">
-      <canvas id="modalChartCanvas"></canvas>
+          <h2 class="text-2xl md:text-3xl font-extrabold" data-i18n="sections.dataTitle">Data &amp; results (demo)</h2>
+          <p class="mt-2 text-slate-700 dark:text-slate-400" data-i18n="data.description">Here are example visualizations illustrating the kinds of summaries we can share. These lots use fake data and will be replaced with real data when ready.</p>
+      </div>
     </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Time Spent -->
+  <div class="rounded-3xl bg-white dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-80 card-hover">
+        <div class="flex items-center gap-2 mb-2 justify-between">
+          <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            <h3 class="font-semibold" data-i18n="charts.timeSpent.title">Time spent on device by age (hours/week)</h3>
+          </div>
+          <!-- Zoom removed: intentionally hidden for now -->
+        </div>
+      
+        <canvas aria-label="Time Spent per Device chart" height="10" id="chartTimeSpent" role="img"></canvas>
+
+        <!-- Modal for chart (hidden by default) -->
+        <div id="modalChartOverlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-60">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg w-[90%] md:w-3/4 lg:w-2/3 p-4 relative">
+            <button id="modalChartClose" class="absolute top-3 right-3 px-2 py-1 rounded text-sm bg-slate-200 dark:bg-slate-800">✕</button>
+            <h3 id="modalChartTitle" class="text-lg font-semibold mb-3"></h3>
+            <div class="h-[65vh]">
+              <canvas id="modalChartCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive function chart (mirrors Time Spent chart layout) -->
+  <div class="rounded-3xl bg-white dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-80 card-hover">
+        <div class="flex items-center gap-2 mb-2 justify-between">
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              <h3 class="font-semibold">Executive Functions development (z-score)</h3>
+            </div>
+            <!-- EF zoom removed: intentionally hidden for now -->
+          </div>
+  <canvas aria-label="Executive function by timepoint" height="10" id="chartEF" role="img"></canvas>
+      </div>
+
+      <!-- Well-being vs. night use -->
+  <div class="rounded-3xl bg-slate-200 dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-80 md:col-span-2 card-hover">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="h-5 w-5 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <h3 class="font-semibold">Well-being vs. night-time use</h3>
+        </div>
+        <canvas aria-label="Well-being vs night use chart" height="10" id="chartWB" role="img"></canvas>
+      </div>
+    </div>
+    <p class="mt-4 text-xs text-slate-500 dark:text-slate-600">Charts are illustrative only.</p>
   </div>
-</div>
-</div>
-<div class="rounded-3xl bg-slate-200 dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 card-hover">
-<div class="flex items-center gap-2 mb-2">
-<svg class="h-5 w-5 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Executive function composite (z-score)</h3>
-</div>
-<canvas aria-label="Executive function chart" height="10" id="chartEF" role="img"></canvas>
-</div>
-<div class="rounded-3xl bg-slate-200 dark:bg-slate-800 p-5 shadow-soft border border-slate-200 dark:border-slate-700 h-64 md:col-span-2 card-hover">
-<div class="flex items-center gap-2 mb-2">
-<svg class="h-5 w-5 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-<h3 class="font-semibold">Well-being vs. night-time use</h3>
-</div>
-<canvas aria-label="Well-being vs night use chart" height="10" id="chartWB" role="img"></canvas>
-</div>
-</div>
-<p class="mt-4 text-xs text-slate-500 dark:text-slate-600">Charts are illustrative only.</p>
-</div>
 </section>
 
 <!-- Families & Teachers -->
@@ -992,8 +993,9 @@
 <script>
   // Function to load and parse CSV data with robust header normalization
   function parseCSVText(csvText) {
-    const rows = csvText.trim().split('\n').map(row => row.split(','));
-    const rawHeaders = rows[0].map(h => h.trim());
+    // Basic CSV parser: split rows and cells, trim and remove surrounding double-quotes
+    const rows = csvText.trim().split('\n').map(row => row.split(',').map(cell => cell.trim().replace(/^"|"$/g, '')));
+    const rawHeaders = rows[0].map(h => h || '');
     const headers = rawHeaders.map(h => h ? h.toLowerCase().replace(/\s+/g, '_') : 'col_empty');
     return rows.slice(1).map(row => {
       const obj = {};
@@ -1008,6 +1010,8 @@
 
   async function loadCSVData(url) {
     const response = await fetch(url);
+    // Debug: log fetch status so we can see 200/404/etc in the console
+    try { console.debug('fetch', url, 'status', response.status, 'ok', response.ok); } catch (e) { /* ignore */ }
     if (!response.ok) throw new Error('Failed to fetch CSV: ' + response.status);
     const csvText = await response.text();
     return parseCSVText(csvText);
@@ -1023,12 +1027,12 @@
       } catch (err) {
         console.warn('Could not fetch CSV file, using embedded fallback data. Error:', err);
         const fallbackCSV = `,age,timepoint,computer,smartphone,tablet,TV,gaming console
-1,12,t1,7.462765957,16.90425532,3.345744681,7.622340426,6.234042553
-2,13,t1,7.911174785,20.38252149,4.714899713,8.951289398,9.323782235
-3,14,t1,11.45604396,24.6978022,3.901098901,7.615384615,10.73626374
-4,15,t1,22.38059701,32.05223881,2.6171875,5.753846154,9.78030303
-5,16,t1,25.11363636,27.7706422,2.609090909,5.963636364,5.75
-6,17,t1,20.64754098,29.99180328,2.721311475,6.286885246,3.93442623`;
+                            1,12,t1,7.462765957,16.90425532,3.345744681,7.622340426,6.234042553
+                            2,13,t1,7.911174785,20.38252149,4.714899713,8.951289398,9.323782235
+                            3,14,t1,11.45604396,24.6978022,3.901098901,7.615384615,10.73626374
+                            4,15,t1,22.38059701,32.05223881,2.6171875,5.753846154,9.78030303
+                            5,16,t1,25.11363636,27.7706422,2.609090909,5.963636364,5.75
+                            6,17,t1,20.64754098,29.99180328,2.721311475,6.286885246,3.93442623`;
         data = parseCSVText(fallbackCSV);
       }
       
@@ -1055,33 +1059,34 @@
 
       // Create time spent by device chart
       const timeSpentCtx = document.getElementById('chartTimeSpent').getContext('2d');
-  window.timeSpentChart = new Chart(timeSpentCtx, {
+      window.timeSpentChart = new Chart(timeSpentCtx, {
         type: 'line',
         data: {
           labels: ages,
-          datasets: deviceData.map((device, i) => ({
-            label: device.label,
-            data: device.data,
-            borderColor: [
-              'rgb(99, 102, 241)', // indigo
-              'rgb(59, 130, 246)', // blue
-              'rgb(147, 51, 234)', // purple
-              'rgb(16, 185, 129)', // emerald
-              'rgb(249, 115, 22)'  // orange
-            ][i],
-            tension: 0.4,
-            fill: false
-          }))
+          datasets: (function(){
+            const palette = ['rgb(99, 102, 241)', 'rgb(59, 130, 246)', 'rgb(147, 51, 234)', 'rgb(16, 185, 129)', 'rgb(249, 115, 22)'];
+            return deviceData.map((device, i) => ({
+              label: device.label,
+              data: device.data,
+              borderColor: palette[i % palette.length],
+              pointBackgroundColor: palette[i % palette.length],
+              pointBorderColor: palette[i % palette.length],
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              tension: 0.4,
+              fill: false
+            }));
+          })()
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            title: {
-              display: true,
-              text: t('charts.timeSpent.title', localStorage.getItem('lang')) || 'Time spent on device by age (hours/week)',
-              font: { size: 16, weight: 'bold' }
-            },
+                title: {
+                  display: false,
+                  text: t('charts.timeSpent.title', localStorage.getItem('lang')) || 'Time spent on device by age (hours/week)',
+                  font: { size: 16, weight: 'bold' }
+                },
             legend: {
               position: 'bottom',
               labels: { usePointStyle: true }
@@ -1105,15 +1110,9 @@
         }
       });
 
-      // Wire the Open Larger button to open the chart in a new window
-      const btnZoom = document.getElementById('btnZoomChart');
-      if (btnZoom) {
-        btnZoom.addEventListener('click', () => {
-          const chart = window.timeSpentChart || Chart.getChart(document.getElementById('chartTimeSpent'));
-          if (chart) openLargeChart(chart);
-          else console.warn('Chart not ready yet');
-        });
-      }
+      // Zoom button removed: no-op (was btnZoomChart)
+
+      // EF chart will be initialized separately (keeps charts independent)
     } catch (error) {
       console.error('Error loading or rendering chart:', error);
     }
@@ -1146,12 +1145,40 @@
       const title = (chart.options && chart.options.plugins && chart.options.plugins.title && chart.options.plugins.title.text) || '';
       const xAxis = (chart.options && chart.options.scales && chart.options.scales.x && chart.options.scales.x.title && chart.options.scales.x.title.text) || '';
       const yAxis = (chart.options && chart.options.scales && chart.options.scales.y && chart.options.scales.y.title && chart.options.scales.y.title.text) || '';
+    // If the page contains the modal overlay, render the chart inside that modal instead
+    const modal = document.getElementById('modalChartOverlay');
+    const modalCanvas = document.getElementById('modalChartCanvas');
+    const modalTitle = document.getElementById('modalChartTitle');
+    const modalClose = document.getElementById('modalChartClose');
+    if (modal && modalCanvas) {
+      // Show modal
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.classList.remove('opacity-0');
+      if (modalTitle) modalTitle.textContent = title || '';
 
-    const child = window.open('', '_blank');
-    const doc = child.document;
-  // Build a minimal safe HTML for the large chart (remove raw ${title} injection)
-  const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title></title><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;padding:18px;background:#fff;color:#111}canvas{max-width:100%;height:80vh}</style></head><body><canvas id="largeChart"></canvas><script>const labels=${JSON.stringify(labels)};const datasets=${JSON.stringify(datasets)};const ctx=document.getElementById('largeChart').getContext('2d');new Chart(ctx,{type:'line',data:{labels:labels,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:${JSON.stringify(title)}},legend:{position:'bottom'}},scales:{x:{title:{display:true,text:${JSON.stringify(xAxis)}}},y:{title:{display:true,text:${JSON.stringify(yAxis)}}}}});<\/script></body></html>`;
-    doc.open(); doc.write(html); doc.close();
+      // Destroy any existing chart on the modal canvas
+      try { const existing = Chart.getChart(modalCanvas); if (existing) existing.destroy(); } catch(e){}
+
+      // Create the large chart in the modal
+      new Chart(modalCanvas.getContext('2d'), {
+        type: chart.config ? chart.config.type : 'line',
+        data: { labels: labels, datasets: datasets },
+        options: Object.assign({}, chart.options || {}, { responsive: true, maintainAspectRatio: false, plugins: Object.assign({}, (chart.options && chart.options.plugins) || {}, { title: { display: true, text: title } }) })
+      });
+
+      // Wire close button
+      if (modalClose) {
+        const hide = () => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          try { const c = Chart.getChart(modalCanvas); if (c) c.destroy(); } catch(e){}
+        };
+        modalClose.onclick = hide;
+        modal.onclick = function(e) { if (e.target === modal) hide(); };
+      }
+      return;
+    }
     } catch (e) {
       console.error('Failed to open large chart', e);
     }
@@ -1180,20 +1207,68 @@
   // Chart helpers
   function rand(n, base=0) { return Array.from({length:n}, () => parseFloat((Math.random()*0.6 + base).toFixed(2))); }
 
+  // Initialize EF chart separately (mirrors time-spent pattern and includes fallback CSV)
+  document.addEventListener('DOMContentLoaded', async function() {
+    try {
+      let ef;
+      try {
+        ef = await loadCSVData('./data/EF_data.csv');
+      } catch (err) {
+        console.warn('Could not fetch ./data/EF_data.csv, using fallback. Error:', err);
+        const fallbackCSV = `timepoint,cognitive_flexibility,inhibitory_control,working_memory,speed_of_processing
+t1,-0.019284556,-0.024582998,-0.023957099,-0.021286052
+t2,0.334127488,0.248279243,0.058910045,0.327427549
+t3,0.629762214,0.35073871,0.327661343,0.536332956`;
+        ef = parseCSVText(fallbackCSV);
+      }
+
+      if (!ef || !ef.length) {
+        console.warn('EF data empty after load/fallback');
+        return;
+      }
+
+      const labels = ef.map(r => (r.timepoint || '').toString());
+      const keys = Object.keys(ef[0]).filter(k => k !== 'timepoint' && k !== '');
+      const palette = ['rgb(99,102,241)','rgb(59,130,246)','rgb(147,51,234)','rgb(16,185,129)','rgb(249,115,22)','rgb(236,72,153)'];
+      const datasets = keys.map((k,i) => ({ label: k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()), data: ef.map(r => (r[k]==null?null:Number(r[k]))), borderColor: palette[i%palette.length], tension:0.4, fill:false }));
+
+      const ctxEF = document.getElementById('chartEF').getContext('2d');
+      // Ensure EF datasets have filled point markers and distinct colors
+      const efPalette = ['rgb(220,38,38)','rgb(234,88,12)','rgb(34,197,94)','rgb(30,64,175)','rgb(168,85,247)','rgb(14,165,233)'];
+      const efDatasets = datasets.map((d,i) => ({
+        label: d.label,
+        data: d.data,
+        borderColor: efPalette[i % efPalette.length],
+        pointBackgroundColor: efPalette[i % efPalette.length],
+        pointBorderColor: efPalette[i % efPalette.length],
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        tension: 0.4,
+        fill: false
+      }));
+
+      window.efChart = new Chart(ctxEF, {
+        type: 'line',
+        data: { labels, datasets: efDatasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { title: { display: false }, legend: { position: 'bottom', labels: { usePointStyle: true } } },
+          scales: { y: { beginAtZero: false, title: { display: true, text: 'Z-score' } }, x: { title: { display: true, text: 'Timepoint' } } }
+        }
+      });
+
+      // EF zoom removed: no-op (was btnZoomEF)
+    } catch (e) {
+      console.error('Failed to initialize EF chart', e);
+    }
+  });
+
   // Device time spent by age
   // Device chart is initialized via the CSV loader added earlier.
   // The async CSV loader creates a chart on the canvas with id="chartTimeSpent".
 
-  // Executive function composite across assessments (demo)
-  const efCtx = document.getElementById('chartEF');
-  const waves = ['T1','T2','T3','T4'];
-  const ef = [ -0.15, 0.02, 0.18, 0.35 ];
-  new Chart(efCtx, {
-    type: 'bar',
-    data: { labels: waves, datasets: [{ label: 'EF composite (z)', data: ef, borderWidth: 1 }] },
-    options: { responsive:true, maintainAspectRatio:false, scales: { y: { suggestedMin: -0.5, suggestedMax: 0.6 } },
-      plugins: { legend: { display:false } } }
-  });
+  // Executive function chart was inlined into the DOMContentLoaded block to mirror time-spent chart
 
   // Well-being vs night-time use (demo)
   const wbCtx = document.getElementById('chartWB');
@@ -1213,11 +1288,14 @@
       ch1.update();
     }
 
-    const ch2 = Chart.getChart(document.getElementById('chartEF'));
-    if (ch2) {
-      ch2.data.datasets[0].data = rand(4, -0.2).map(v => parseFloat((v - 0.1).toFixed(2)));
-      ch2.update();
-    }
+    // Randomize EF chart (second chart) if present
+    try {
+      const ch2 = Chart.getChart(document.getElementById('chartEF')) || window.efChart;
+      if (ch2) {
+        ch2.data.datasets.forEach((ds, i) => { ds.data = rand(ch2.data.labels.length, 0.4 + i*0.1); });
+        ch2.update();
+      }
+    } catch (e) { /* ignore */ }
 
     const ch3 = Chart.getChart(document.getElementById('chartWB'));
     if (ch3) {
