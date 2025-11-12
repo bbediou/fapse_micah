@@ -411,6 +411,25 @@ html.dark .samples {
   color: #cbd5e1 !important;
 }
 
+/* Light mode: brighter gradient backgrounds for rounded-3xl boxes */
+.rounded-3xl.bg-gradient-to-br.from-indigo-50.to-purple-50 {
+  background: linear-gradient(to bottom right, #e0e7ff, #f3e8ff) !important;
+}
+.rounded-3xl.bg-gradient-to-br.from-blue-50.to-cyan-50 {
+  background: linear-gradient(to bottom right, #dbeafe, #cffafe) !important;
+}
+.rounded-3xl.bg-gradient-to-br.from-purple-50.to-pink-50 {
+  background: linear-gradient(to bottom right, #f3e8ff, #fce7f3) !important;
+}
+.rounded-3xl.bg-gradient-to-br.from-emerald-50.to-teal-50 {
+  background: linear-gradient(to bottom right, #d1fae5, #ccfbf1) !important;
+}
+
+/* Light mode: brighter gradient backgrounds for mt-6 rounded-2xl boxes */
+.mt-6.rounded-2xl.bg-gradient-to-br.from-indigo-50.to-purple-50 {
+  background: linear-gradient(to bottom right, #e0e7ff, #f3e8ff) !important;
+}
+
 /* Explicit dark backgrounds for gradient boxes */
 html.dark .rounded-3xl.bg-gradient-to-br.from-indigo-50 {
   background: linear-gradient(to bottom right, #312e81, #5a2d82) !important;

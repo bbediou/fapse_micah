@@ -107,7 +107,7 @@
   </section>
 
   <!-- Quick stats -->
-  <section class="bg-white dark:bg-slate-50 py-10 md:py-14 quick-stats">
+  <section class="bg-white dark:bg-slate-900 py-10 md:py-14 quick-stats">
     <div class="mx-auto container container-narrow px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       <div class="rounded-3xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-purple-950 p-6 shadow-soft card-hover">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-indigo-900 dark:text-indigo-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -476,24 +476,57 @@
           </div>
         </div>
       </div>
-      <form class="bg-white/10 backdrop-blur rounded-3xl p-6 shadow-soft border border-white/20">
+
+      <!-- Contact form: posts to contact.php on the server (no DB). Honeypot anti-spam included. -->
+      <form action="/contact.php" method="POST" class="bg-white/10 backdrop-blur rounded-3xl p-6 shadow-soft border border-white/20" novalidate>
         <label class="block text-sm font-medium">Name
-          <input type="text" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="Your full name" required>
+          <input name="name" type="text" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="Your full name" required>
         </label>
         <label class="block text-sm font-medium mt-4">Email
-          <input type="email" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="you@example.org" required>
+          <input name="email" type="email" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="you@example.org" required>
         </label>
         <label class="block text-sm font-medium mt-4">Message
-          <textarea rows="4" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="How can we help?" required></textarea>
+          <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-white/20 bg-white/10 px-3 py-2 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-white transition-all" placeholder="How can we help?" required></textarea>
         </label>
-        <button type="button" class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2 text-slate-900 font-semibold shadow-soft hover:bg-slate-50 transition-all">
+
+        <!-- Honeypot to reduce spam (bots will fill this) -->
+        <input type="text" name="nickname" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-2 text-slate-900 font-semibold shadow-soft hover:bg-slate-50 transition-all">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
           Send message
         </button>
-        <p class="mt-2 text-xs text-white/70">Demo form only.</p>
+
+        <div id="contactStatus" class="mt-3 text-sm"></div>
+
+        <p class="mt-2 text-xs text-white/70">Demo form enabled — messages are sent by email (no database).</p>
       </form>
     </div>
   </section>
+
+  <!-- Tiny inline script to show send status -->
+  <script>
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const status = params.get('sent');
+      if (!status) return;
+      const el = document.getElementById('contactStatus');
+      if (!el) return;
+      if (status === '1') {
+        el.textContent = 'Message envoyé — merci. Nous répondrons sous peu.';
+        el.style.color = '#d1fae5'; // light green
+      } else {
+        el.textContent = 'Erreur d\'envoi — veuillez réessayer ou écrire à benoît par email.';
+        el.style.color = '#fee2e2'; // light red
+      }
+      // Remove query string from URL (clean)
+      if (window.history && window.history.replaceState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('sent');
+        window.history.replaceState({}, document.title, url.pathname + url.hash);
+      }
+    })();
+  </script>
 
   <footer class="py-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
     <div class="mx-auto container container-narrow px-4 flex flex-col md:flex-row items-center justify-between gap-4">
