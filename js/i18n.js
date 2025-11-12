@@ -3,7 +3,7 @@ const translations = {
   en: {
     title: "MICAH – Media, Interaction, Cognition, Adolescents & Health",
     metaDescription: "A friendly, modern demo site for the MICAH project showing positive visuals, clear structure, and sample data visualizations.",
-    nav: { home: "Home", about: "About", methods: "Methods", data: "Data & Results", report: "Report", families: "For Families", team: "Team", contact: "Contact" },
+    nav: { home: "Home", about: "About", methods: "Methods", data: "Data & Results", report: "Full Report", families: "For Families", team: "Team", contact: "Contact" },
     cta: { explore: "Explore results", whatStudy: "What we study", getInTouch: "Get in touch" },
     hero: { tagline: "Media · Cognition · Adolescents · Health", h1: "Understanding how young people use digital media—and how it relates to learning, well-being, and health.", p: "MICAH follows adolescents over time to explore digital media practices and executive functions, aiming to inform families, schools, and researchers." },
     sections: { aboutTitle: "What we study", aboutFocus: "Our Focus", methodsTitle: "How the study works", dataTitle: "Data & results (demo)", familiesTitle: "For families & teachers", teamTitle: "Team", contactTitle: "Get in touch", findings: "Findings", dataLabel: "Data & results (demo)", practicalGuidance: "Practical Guidance", ourTeam: "Our Team" },
@@ -22,7 +22,7 @@ const translations = {
   fr: {
     title: "MICAH – Médias, interaction, cognition, adolescents & santé",
     metaDescription: "Site démo convivial pour le projet MICAH présentant des visuels positifs, une structure claire et des visualisations de données d'exemple.",
-    nav: { home: "Accueil", about: "À propos", methods: "Méthodes", data: "Données & Résultats", report: "Rapport", families: "Pour les familles", team: "Équipe", contact: "Contact" },
+    nav: { home: "Accueil", about: "À propos", methods: "Méthodes", data: "Données & Résultats", report: "Rapport complet", families: "Pour les familles", team: "Équipe", contact: "Contact" },
     cta: { explore: "Explorer les résultats", whatStudy: "Ce que nous étudions", getInTouch: "Contactez-nous" },
     hero: { tagline: "Médias · Cognition · Adolescents · Santé", h1: "Comprendre comment les jeunes utilisent les médias numériques — et comment cela se rapporte à l'apprentissage, au bien-être et à la santé.", p: "MICAH suit des adolescents dans le temps pour étudier les pratiques des médias numériques et les fonctions exécutives, afin d'informer les familles, les écoles et les chercheurs." },
     sections: { aboutTitle: "Ce que nous étudions", aboutFocus: "Notre focus", methodsTitle: "Comment fonctionne l'étude", dataTitle: "Données & résultats (démo)", familiesTitle: "Pour les familles & enseignants", teamTitle: "Équipe", contactTitle: "Contactez-nous", findings: "Résultats", dataLabel: "Données & résultats (démo)", practicalGuidance: "Conseils pratiques", ourTeam: "Notre équipe" },
@@ -41,7 +41,7 @@ const translations = {
   de: {
     title: "MICAH – Medien, Interaktion, Kognition, Jugendliche & Gesundheit",
     metaDescription: "Eine freundliche Demo-Site für das MICAH-Projekt mit positiven Visualisierungen, klarer Struktur und Beispiel-Datenvisualisierungen.",
-    nav: { home: "Start", about: "Über uns", methods: "Methoden", data: "Daten & Ergebnisse", report: "Bericht", families: "Für Familien", team: "Team", contact: "Kontakt" },
+    nav: { home: "Start", about: "Über uns", methods: "Methoden", data: "Daten & Ergebnisse", report: "vollständigen Bericht", families: "Für Familien", team: "Team", contact: "Kontakt" },
     cta: { explore: "Ergebnisse erkunden", whatStudy: "Was wir untersuchen", getInTouch: "Kontakt" },
     hero: { tagline: "Medien · Kognition · Jugendliche · Gesundheit", h1: "Verstehen, wie junge Menschen digitale Medien nutzen — und wie das Lernen, Wohlbefinden und Gesundheit beeinflusst.", p: "MICAH begleitet Jugendliche über die Zeit, um digitale Medienpraktiken und exekutive Funktionen zu untersuchen und Familien, Schulen und Forschende zu informieren." },
     sections: { aboutTitle: "Was wir untersuchen", aboutFocus: "Unser Fokus", methodsTitle: "Wie die Studie funktioniert", dataTitle: "Daten & Ergebnisse (Demo)", familiesTitle: "Für Familien & Lehrkräfte", teamTitle: "Team", contactTitle: "Kontakt", findings: "Ergebnisse", dataLabel: "Daten & Ergebnisse (Demo)", practicalGuidance: "Praktische Anleitung", ourTeam: "Unser Team" },
